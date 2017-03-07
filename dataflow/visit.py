@@ -121,7 +121,7 @@ class AlwaysData(object):
         return self.control
 
     def printInfo(self, buf=sys.stdout):
-        buf.write('AlwaysInfo:\n')
+        buf.write('AlwaysData:\n')
         if(self.data):
             buf.write('Data:\n')
             string=''
@@ -257,19 +257,32 @@ class ModuleInfo(DefinitionInfo):
     def __init__(self, name, definition):
         DefinitionInfo.__init__(self, name, definition)
         self.always = {}
+        self.last = None
 
-    def addAlways(self, node, alwaysdata = None):
+    def addAlways(self, node, alwaysdata):
         self.always[node]=alwaysdata
-        return 
+        self.last = node
+        return
+
     def addAlwaysData(self, node, alwaysdata):
         if(node in self.always.keys()):
             self.always[node]=alwaysdata
         else:
             raise verror.DefinitionError('Already defined Always:')
+        self.last = node
         return 
+
     def getAlways(self):
         return self.always
 
+    def getAlwaysData(self, node):
+        return self.always[node]
+
+    def getCurrentAlwaysData(self):
+        if(self.last is None):
+            raise verror.DefinitionError('Already not defined')
+        else:
+            return self.getAlwaysData(self.last)
 
 class DefinitionInfoTable(object):
     def __init__(self):
@@ -371,7 +384,7 @@ class ModuleInfoTable(object):
         self.dict[t].definition.name = t
         self.dict[t].name = t
     
-    def addAlways(self, node, alwaysdata = None, name=''):
+    def addAlways(self, node, alwaysdata, name=''):
         if(name==''):
             self.dict[self.current].addAlways(node, alwaysdata)
         else:
@@ -388,6 +401,18 @@ class ModuleInfoTable(object):
             return self.dict[name].getAlways()
         else:
             return None
+    
+    def getAlwaysData(self, node, name=''):
+        if(name==''):
+            return self.dict[self.current].getAlwaysData(node)
+        else:
+            return self.dict[name].getAlwaysData(node)
+
+    def getCurrentAlwaysData(self, name=''):
+        if(name==''):
+            return self.dict[self.current].getCurrentAlwaysData()
+        else:
+            return self.dict[name].getCurrentAlwaysData()
 
 class FunctionInfo(DefinitionInfo): pass
 class FunctionInfoTable(DefinitionInfoTable): pass

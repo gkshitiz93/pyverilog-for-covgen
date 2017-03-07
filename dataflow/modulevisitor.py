@@ -42,17 +42,51 @@ class ModuleVisitor(NodeVisitor):
     def visit_Locaparam(self, node):
         self.moduleinfotable.addConst(node.name, node)
 
-    # Skip Rule
     def visit_Function(self, node):
         pass
 
     def visit_Task(self, node):
         pass
+    
+    def visit_Assign(self, node):
+        pass
 
     def visit_Always(self, node):
-        pass
-        #MARKself.moduleinfotable.addAlways(node)
+        alwaysdata=AlwaysData(node)
+        self.temp=node
+        self.moduleinfotable.addAlways(node=node, alwaysdata=alwaysdata)
+        self.generic_visit(node)
 
+    def visit_Block(self, node):
+        self.generic_visit(node)
+    
+    def visit_IfStatement(self, node):
+        self.moduleinfotable.getCurrentAlwaysData().addControl(node.cond)
+        if node.true_statement is not None: self.visit(node.true_statement)
+        if node.false_statement is not None: self.visit(node.false_statement)
+    
+    def visit_CaseStatement(self, node):
+        self.moduleinfotable.getCurrentAlwaysData().addControl(node.comp)
+        self._case(node.comp, node.caselist)
+    
+    def _case(self, comp, caselist):
+        if len(caselist) == 0: return
+        case = caselist[0]
+        if case.statement is not None: self.visit(case.statement)
+        if len(caselist) == 1: return
+        self._case(comp, caselist[1:])
+    
+    def visit_CasexStatement(self, node):
+        self.visit_CaseStatement(node)
+    
+    def visit_BlockingSubstitution(self, node):
+        self.moduleinfotable.getCurrentAlwaysData().addData(node.right)
+        self.moduleinfotable.getCurrentAlwaysData().addState(node.left)
+
+    def visit_NonblockingSubstitution(self, node):
+        self.moduleinfotable.getCurrentAlwaysData().addData(node.right)
+        self.moduleinfotable.getCurrentAlwaysData().addState(node.left)
+    
     def visit_Initial(self, node):
         pass
 

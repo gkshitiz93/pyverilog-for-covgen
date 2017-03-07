@@ -56,6 +56,8 @@ class Node(object):
 
     def getIdentifiers(self, currentlist = []):
         ret = currentlist
+        if(self.__class__.__name__=='Identifier'):
+            ret.append(self)
         for c in self.children():
             if(c.__class__.__name__ == 'Identifier'):
                 ret.append(c)

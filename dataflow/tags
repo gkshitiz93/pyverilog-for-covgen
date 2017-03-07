@@ -1,0 +1,759 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AlwaysData	./visit.py	/^class AlwaysData(object):$/;"	c
+AlwaysInfo	./visit.py	/^class AlwaysInfo(object):$/;"	c
+Bind	./dataflow.py	/^class Bind(object):$/;"	c
+BindVisitor	./bindvisitor.py	/^class BindVisitor(NodeVisitor):$/;"	c
+ConstTable	./visit.py	/^class ConstTable(VariableTable): pass$/;"	c
+DFBranch	./dataflow.py	/^class DFBranch(DFNotTerminal):$/;"	c
+DFConcat	./dataflow.py	/^class DFConcat(DFNotTerminal):$/;"	c
+DFConstant	./dataflow.py	/^class DFConstant(DFNode):$/;"	c
+DFDelay	./dataflow.py	/^class DFDelay(DFNotTerminal):$/;"	c
+DFEvalValue	./dataflow.py	/^class DFEvalValue(DFNode):$/;"	c
+DFFloatConst	./dataflow.py	/^class DFFloatConst(DFConstant):$/;"	c
+DFHighImpedance	./dataflow.py	/^class DFHighImpedance(DFNode):$/;"	c
+DFIntConst	./dataflow.py	/^class DFIntConst(DFConstant):$/;"	c
+DFNode	./dataflow.py	/^class DFNode(object):$/;"	c
+DFNotTerminal	./dataflow.py	/^class DFNotTerminal(DFNode): pass$/;"	c
+DFOperator	./dataflow.py	/^class DFOperator(DFNotTerminal):$/;"	c
+DFPartselect	./dataflow.py	/^class DFPartselect(DFNotTerminal):$/;"	c
+DFPointer	./dataflow.py	/^class DFPointer(DFNotTerminal):$/;"	c
+DFStringConst	./dataflow.py	/^class DFStringConst(DFConstant):$/;"	c
+DFSyscall	./dataflow.py	/^class DFSyscall(DFNotTerminal):$/;"	c
+DFTerminal	./dataflow.py	/^class DFTerminal(DFNode):$/;"	c
+DFUndefined	./dataflow.py	/^class DFUndefined(DFNode):$/;"	c
+DataFlow	./dataflow.py	/^class DataFlow(object):$/;"	c
+DefinitionInfo	./visit.py	/^class DefinitionInfo(object):$/;"	c
+DefinitionInfoTable	./visit.py	/^class DefinitionInfoTable(object):$/;"	c
+Frame	./visit.py	/^class Frame(object):$/;"	c
+FrameTable	./visit.py	/^class FrameTable(object):$/;"	c
+FunctionInfo	./visit.py	/^class FunctionInfo(DefinitionInfo): pass$/;"	c
+FunctionInfoTable	./visit.py	/^class FunctionInfoTable(DefinitionInfoTable): pass$/;"	c
+GenvarTable	./visit.py	/^class GenvarTable(VariableTable): pass$/;"	c
+Label	./visit.py	/^class Label(object):$/;"	c
+Labels	./visit.py	/^class Labels(object):$/;"	c
+ModuleInfo	./visit.py	/^class ModuleInfo(DefinitionInfo):$/;"	c
+ModuleInfoTable	./visit.py	/^class ModuleInfoTable(object):$/;"	c
+ModuleVisitor	./modulevisitor.py	/^class ModuleVisitor(NodeVisitor):$/;"	c
+NodeVisitor	./visit.py	/^class NodeVisitor(object):$/;"	c
+SignalTable	./visit.py	/^class SignalTable(VariableTable): pass$/;"	c
+SignalVisitor	./signalvisitor.py	/^class SignalVisitor(NodeVisitor):$/;"	c
+TaskInfo	./visit.py	/^class TaskInfo(DefinitionInfo): pass$/;"	c
+TaskInfoTable	./visit.py	/^class TaskInfoTable(DefinitionInfoTable): pass$/;"	c
+Term	./dataflow.py	/^class Term(object):$/;"	c
+VariableTable	./visit.py	/^class VariableTable(object):$/;"	c
+Variables	./visit.py	/^class Variables(object):$/;"	c
+VerilogCodeGenerator	./dataflow_codegen.py	/^class VerilogCodeGenerator(VerilogSubset):$/;"	c
+VerilogDataflowAnalyzer	./dataflow_analyzer.py	/^class VerilogDataflowAnalyzer(VerilogCodeParser):$/;"	c
+VerilogDataflowMerge	./merge.py	/^class VerilogDataflowMerge(object):$/;"	c
+VerilogDataflowOptimizer	./optimizer.py	/^class VerilogDataflowOptimizer(VerilogOptimizer):$/;"	c
+VerilogDataflowWalker	./walker.py	/^class VerilogDataflowWalker(VerilogDataflowMerge):$/;"	c
+VerilogGraphGenerator	./graphgen.py	/^class VerilogGraphGenerator(object):$/;"	c
+VerilogOptimizer	./optimizer.py	/^class VerilogOptimizer(object):$/;"	c
+VerilogSubset	./subset.py	/^class VerilogSubset(VerilogDataflowMerge):$/;"	c
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:Bind	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFBranch	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFConcat	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFConstant	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFDelay	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFEvalValue	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFHighImpedance	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFNode	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFOperator	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFPartselect	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFPointer	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFSyscall	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFTerminal	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:DFUndefined	file:
+__eq__	./dataflow.py	/^    def __eq__(self, other):$/;"	m	class:Term	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:Bind	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFBranch	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFConcat	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFConstant	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFDelay	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFEvalValue	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFHighImpedance	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFNode	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFOperator	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFPartselect	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFPointer	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFSyscall	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFTerminal	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:DFUndefined	file:
+__hash__	./dataflow.py	/^    def __hash__(self):$/;"	m	class:Term	file:
+__init__	./bindvisitor.py	/^    def __init__(self, moduleinfotable, top, frames, noreorder=False):$/;"	m	class:BindVisitor
+__init__	./dataflow.py	/^    def __init__(self): pass$/;"	m	class:DFNode
+__init__	./dataflow.py	/^    def __init__(self):$/;"	m	class:DataFlow
+__init__	./dataflow.py	/^    def __init__(self, condnode, truenode, falsenode):$/;"	m	class:DFBranch
+__init__	./dataflow.py	/^    def __init__(self, name):$/;"	m	class:DFTerminal
+__init__	./dataflow.py	/^    def __init__(self, nextnode):$/;"	m	class:DFDelay
+__init__	./dataflow.py	/^    def __init__(self, nextnodes):$/;"	m	class:DFConcat
+__init__	./dataflow.py	/^    def __init__(self, nextnodes, operator):$/;"	m	class:DFOperator
+__init__	./dataflow.py	/^    def __init__(self, syscall, nextnodes):$/;"	m	class:DFSyscall
+__init__	./dataflow.py	/^    def __init__(self, tree, dest, msb=None, lsb=None, ptr=None, alwaysinfo=None, parameterinfo=''):$/;"	m	class:Bind
+__init__	./dataflow.py	/^    def __init__(self, value):$/;"	m	class:DFConstant
+__init__	./dataflow.py	/^    def __init__(self, value):$/;"	m	class:DFFloatConst
+__init__	./dataflow.py	/^    def __init__(self, value):$/;"	m	class:DFIntConst
+__init__	./dataflow.py	/^    def __init__(self, value):$/;"	m	class:DFStringConst
+__init__	./dataflow.py	/^    def __init__(self, value, width=32, isfloat=False, isstring=False):$/;"	m	class:DFEvalValue
+__init__	./dataflow.py	/^    def __init__(self, var, msb, lsb):$/;"	m	class:DFPartselect
+__init__	./dataflow.py	/^    def __init__(self, var, ptr):$/;"	m	class:DFPointer
+__init__	./dataflow.py	/^    def __init__(self, width):$/;"	m	class:DFHighImpedance
+__init__	./dataflow.py	/^    def __init__(self, width):$/;"	m	class:DFUndefined
+__init__	./dataflow.py	/^    def __init__(self,name,termtype=(),msb=None,lsb=None,lenmsb=None,lenlsb=None):$/;"	m	class:Term
+__init__	./dataflow_analyzer.py	/^    def __init__(self, filelist, topmodule='TOP', noreorder=False, nobind=False,$/;"	m	class:VerilogDataflowAnalyzer
+__init__	./dataflow_codegen.py	/^    def __init__(self, topmodule, terms, binddict, $/;"	m	class:VerilogCodeGenerator
+__init__	./graphgen.py	/^    def __init__(self, topmodule,$/;"	m	class:VerilogGraphGenerator
+__init__	./merge.py	/^    def __init__(self, topmodule, terms, binddict, resolved_terms, resolved_binddict, constlist):$/;"	m	class:VerilogDataflowMerge
+__init__	./modulevisitor.py	/^    def __init__(self):$/;"	m	class:ModuleVisitor
+__init__	./optimizer.py	/^    def __init__(self, terms, binddict):$/;"	m	class:VerilogDataflowOptimizer
+__init__	./optimizer.py	/^    def __init__(self, terms, constlist=None, default_width=32, level=2):$/;"	m	class:VerilogOptimizer
+__init__	./signalvisitor.py	/^    def __init__(self, moduleinfotable, top):$/;"	m	class:SignalVisitor
+__init__	./subset.py	/^    def __init__(self, topmodule, terms, binddict,$/;"	m	class:VerilogSubset
+__init__	./visit.py	/^    def __init__(self):$/;"	m	class:DefinitionInfoTable
+__init__	./visit.py	/^    def __init__(self):$/;"	m	class:Labels
+__init__	./visit.py	/^    def __init__(self):$/;"	m	class:ModuleInfoTable
+__init__	./visit.py	/^    def __init__(self):$/;"	m	class:VariableTable
+__init__	./visit.py	/^    def __init__(self):$/;"	m	class:Variables
+__init__	./visit.py	/^    def __init__(self, clock_name='', clock_edge=None, clock_bit=0,$/;"	m	class:AlwaysInfo
+__init__	./visit.py	/^    def __init__(self, moduleinfotable=None):$/;"	m	class:FrameTable
+__init__	./visit.py	/^    def __init__(self, name):$/;"	m	class:Label
+__init__	./visit.py	/^    def __init__(self, name, definition):$/;"	m	class:DefinitionInfo
+__init__	./visit.py	/^    def __init__(self, name, definition):$/;"	m	class:ModuleInfo
+__init__	./visit.py	/^    def __init__(self, name, previous, frametype='none',$/;"	m	class:Frame
+__init__	./visit.py	/^    def __init__(self, node):$/;"	m	class:AlwaysData
+__init__	./walker.py	/^    def __init__(self, topmodule, terms, binddict, resolved_terms, resolved_binddict, constlist):$/;"	m	class:VerilogDataflowWalker
+__ne__	./dataflow.py	/^    def __ne__(self, other):$/;"	m	class:Bind	file:
+__ne__	./dataflow.py	/^    def __ne__(self, other):$/;"	m	class:DFNode	file:
+__ne__	./dataflow.py	/^    def __ne__(self, other):$/;"	m	class:Term	file:
+__repr__	./dataflow.py	/^    def __repr__(self): pass$/;"	m	class:DFNode	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFBranch	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFConcat	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFConstant	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFDelay	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFEvalValue	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFHighImpedance	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFOperator	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFPartselect	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFPointer	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFSyscall	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFTerminal	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:DFUndefined	file:
+__repr__	./dataflow.py	/^    def __repr__(self):$/;"	m	class:Term	file:
+_always_clockedge	./dataflow.py	/^    def _always_clockedge(self):$/;"	m	class:Bind
+_always_combination	./dataflow.py	/^    def _always_combination(self):$/;"	m	class:Bind
+_assign	./dataflow.py	/^    def _assign(self):$/;"	m	class:Bind
+_assign	./dataflow_codegen.py	/^    def _assign(self, left, right, msb=None, lsb=None):$/;"	m	class:VerilogCodeGenerator
+_case	./bindvisitor.py	/^    def _case(self, comp, caselist, myframes):$/;"	m	class:BindVisitor
+_case	./modulevisitor.py	/^    def _case(self, comp, caselist):$/;"	m	class:ModuleVisitor
+_case	./signalvisitor.py	/^    def _case(self, comp, caselist):$/;"	m	class:SignalVisitor
+_createAlwaysinfo	./bindvisitor.py	/^    def _createAlwaysinfo(self, node, scope):$/;"	m	class:BindVisitor
+_discretion	./subset.py	/^    def _discretion(self, visited_binddict, visited_sources):$/;"	m	class:VerilogSubset
+_evalOperator	./optimizer.py	/^    def _evalOperator(self, operator, valuelist, width=default_width):$/;"	m	class:VerilogOptimizer
+_get_signal_name	./bindvisitor.py	/^    def _get_signal_name(self, n):$/;"	m	class:BindVisitor
+_if_false	./bindvisitor.py	/^    def _if_false(self, node, label):$/;"	m	class:BindVisitor
+_if_false	./signalvisitor.py	/^    def _if_false(self, node, label):$/;"	m	class:SignalVisitor
+_if_true	./bindvisitor.py	/^    def _if_true(self, node):$/;"	m	class:BindVisitor
+_if_true	./signalvisitor.py	/^    def _if_true(self, node):$/;"	m	class:SignalVisitor
+_inout	./dataflow_codegen.py	/^    def _inout(self, name):$/;"	m	class:VerilogCodeGenerator
+_input	./dataflow_codegen.py	/^    def _input(self, name):$/;"	m	class:VerilogCodeGenerator
+_isPowerOf2	./optimizer.py	/^    def _isPowerOf2(self, value):$/;"	m	class:VerilogOptimizer
+_localparam	./dataflow.py	/^    def _localparam(self):$/;"	m	class:Bind
+_mergeLand	./optimizer.py	/^    def _mergeLand(self, node):$/;"	m	class:VerilogOptimizer
+_mergeLor	./optimizer.py	/^    def _mergeLor(self, node):$/;"	m	class:VerilogOptimizer
+_modulehead	./dataflow_codegen.py	/^    def _modulehead(self, terms):$/;"	m	class:VerilogCodeGenerator
+_output	./dataflow_codegen.py	/^    def _output(self, name):$/;"	m	class:VerilogCodeGenerator
+_parameter	./dataflow.py	/^    def _parameter(self):$/;"	m	class:Bind
+_system_io	./dataflow_codegen.py	/^    def _system_io(self, clock_name, reset_name, enable_name):$/;"	m	class:VerilogCodeGenerator
+_toCode	./dataflow_codegen.py	/^    def _toCode(self, terms, parameter, assign, always_clockedge, always_combination):$/;"	m	class:VerilogCodeGenerator
+_toELSE	./bindvisitor.py	/^    def _toELSE(self, label):$/;"	m	class:BindVisitor
+_toELSE	./signalvisitor.py	/^    def _toELSE(self, label):$/;"	m	class:SignalVisitor
+_tocode_always	./dataflow.py	/^    def _tocode_always(self, dest='dest', always='clockedge'):$/;"	m	class:DFBranch
+_visit_Instance_array	./bindvisitor.py	/^    def _visit_Instance_array(self, node):$/;"	m	class:BindVisitor
+_visit_Instance_array	./signalvisitor.py	/^    def _visit_Instance_array(self, node):$/;"	m	class:SignalVisitor
+_visit_Instance_body	./bindvisitor.py	/^    def _visit_Instance_body(self, node, nodename, arrayindex=None):$/;"	m	class:BindVisitor
+_visit_Instance_body	./signalvisitor.py	/^    def _visit_Instance_body(self, node, nodename):$/;"	m	class:SignalVisitor
+_visit_Instance_primitive	./bindvisitor.py	/^    def _visit_Instance_primitive(self, node, arrayindex=None):$/;"	m	class:BindVisitor
+_visit_Instance_primitive	./signalvisitor.py	/^    def _visit_Instance_primitive(self, node):$/;"	m	class:SignalVisitor
+_wire	./dataflow_codegen.py	/^    def _wire(self, name):$/;"	m	class:VerilogCodeGenerator
+add	./visit.py	/^    def add(self, name, var):$/;"	m	class:VariableTable
+addAlways	./visit.py	/^    def addAlways(self, node, alwaysdata):$/;"	m	class:ModuleInfo
+addAlways	./visit.py	/^    def addAlways(self, node, alwaysdata, name=''):$/;"	m	class:ModuleInfoTable
+addAlwaysData	./visit.py	/^    def addAlwaysData(self, node, alwaysdata):$/;"	m	class:ModuleInfo
+addAlwaysData	./visit.py	/^    def addAlwaysData(self, node, alwaysdata, name=''):$/;"	m	class:ModuleInfoTable
+addBind	./bindvisitor.py	/^    def addBind(self, left, right, alwaysinfo=None, bindtype=None):$/;"	m	class:BindVisitor
+addBind	./dataflow.py	/^    def addBind(self, name, bind):$/;"	m	class:DataFlow
+addBind	./dataflow_codegen.py	/^    def addBind(self, name, bind):$/;"	m	class:VerilogCodeGenerator
+addConst	./visit.py	/^    def addConst(self, name, var):$/;"	m	class:DefinitionInfo
+addConst	./visit.py	/^    def addConst(self, name, var):$/;"	m	class:DefinitionInfoTable
+addConst	./visit.py	/^    def addConst(self, name, var):$/;"	m	class:ModuleInfoTable
+addConst	./visit.py	/^    def addConst(self, name, var):$/;"	m	class:Variables
+addConst	./visit.py	/^    def addConst(self, node):$/;"	m	class:Frame
+addConst	./visit.py	/^    def addConst(self, var):$/;"	m	class:FrameTable
+addControl	./visit.py	/^    def addControl(self, var):$/;"	m	class:AlwaysData
+addData	./visit.py	/^    def addData(self, var):$/;"	m	class:AlwaysData
+addDataflow	./bindvisitor.py	/^    def addDataflow(self, dst, right, lscope, rscope, alwaysinfo=None, bindtype=None):$/;"	m	class:BindVisitor
+addDataflow_blocking	./bindvisitor.py	/^    def addDataflow_blocking(self, dst, right, lscope, rscope, alwaysinfo):$/;"	m	class:BindVisitor
+addDefinition	./visit.py	/^    def addDefinition(self, name, definition):$/;"	m	class:DefinitionInfoTable
+addDefinition	./visit.py	/^    def addDefinition(self, name, definition):$/;"	m	class:ModuleInfoTable
+addFrame	./visit.py	/^    def addFrame(self, scopename,$/;"	m	class:FrameTable
+addFunction	./dataflow.py	/^    def addFunction(self, name, definition):$/;"	m	class:DataFlow
+addFunction	./visit.py	/^    def addFunction(self, node):$/;"	m	class:Frame
+addFunction	./visit.py	/^    def addFunction(self, var):$/;"	m	class:FrameTable
+addFunctionPort	./visit.py	/^    def addFunctionPort(self, node):$/;"	m	class:Frame
+addFunctionPorts	./dataflow.py	/^    def addFunctionPorts(self, name, ports):$/;"	m	class:DataFlow
+addGenvar	./visit.py	/^    def addGenvar(self, name, var):$/;"	m	class:Variables
+addGenvar	./visit.py	/^    def addGenvar(self, node):$/;"	m	class:Frame
+addGenvar	./visit.py	/^    def addGenvar(self, var):$/;"	m	class:FrameTable
+addInstanceParameterBind	./bindvisitor.py	/^    def addInstanceParameterBind(self, param, name=None):$/;"	m	class:BindVisitor
+addInstancePortBind	./bindvisitor.py	/^    def addInstancePortBind(self, port, instportname=None, arrayindex=None):$/;"	m	class:BindVisitor
+addNonblockingAssign	./visit.py	/^    def addNonblockingAssign(self, dst, bind):$/;"	m	class:Frame
+addNonblockingAssign	./visit.py	/^    def addNonblockingAssign(self, dst, bind):$/;"	m	class:FrameTable
+addParamName	./visit.py	/^    def addParamName(self, name):$/;"	m	class:DefinitionInfo
+addParamName	./visit.py	/^    def addParamName(self, name):$/;"	m	class:DefinitionInfoTable
+addParamName	./visit.py	/^    def addParamName(self, name):$/;"	m	class:ModuleInfoTable
+addPort	./visit.py	/^    def addPort(self, port):$/;"	m	class:DefinitionInfo
+addPort	./visit.py	/^    def addPort(self, port):$/;"	m	class:DefinitionInfoTable
+addPort	./visit.py	/^    def addPort(self, port):$/;"	m	class:ModuleInfoTable
+addPorts	./visit.py	/^    def addPorts(self, ports):$/;"	m	class:DefinitionInfo
+addPorts	./visit.py	/^    def addPorts(self, ports):$/;"	m	class:DefinitionInfoTable
+addPorts	./visit.py	/^    def addPorts(self, ports):$/;"	m	class:ModuleInfoTable
+addSignal	./visit.py	/^    def addSignal(self, name, var):$/;"	m	class:DefinitionInfo
+addSignal	./visit.py	/^    def addSignal(self, name, var):$/;"	m	class:DefinitionInfoTable
+addSignal	./visit.py	/^    def addSignal(self, name, var):$/;"	m	class:ModuleInfoTable
+addSignal	./visit.py	/^    def addSignal(self, name, var):$/;"	m	class:Variables
+addSignal	./visit.py	/^    def addSignal(self, node):$/;"	m	class:Frame
+addSignal	./visit.py	/^    def addSignal(self, var):$/;"	m	class:FrameTable
+addState	./visit.py	/^    def addState(self, var):$/;"	m	class:AlwaysData
+addTask	./dataflow.py	/^    def addTask(self, name, definition):$/;"	m	class:DataFlow
+addTask	./visit.py	/^    def addTask(self, node):$/;"	m	class:Frame
+addTask	./visit.py	/^    def addTask(self, var):$/;"	m	class:FrameTable
+addTaskPort	./visit.py	/^    def addTaskPort(self, node):$/;"	m	class:Frame
+addTaskPorts	./dataflow.py	/^    def addTaskPorts(self, name, ports):$/;"	m	class:DataFlow
+addTerm	./bindvisitor.py	/^    def addTerm(self, node, rscope=None):$/;"	m	class:BindVisitor
+addTerm	./dataflow.py	/^    def addTerm(self, name, term):$/;"	m	class:DataFlow
+addTerm	./dataflow_codegen.py	/^    def addTerm(self, name, term):$/;"	m	class:VerilogCodeGenerator
+add_DF	./graphgen.py	/^    def add_DF(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+add_RenamedDF	./graphgen.py	/^    def add_RenamedDF(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+add_edge	./graphgen.py	/^    def add_edge(self, start, end, color='black', label=None):$/;"	m	class:VerilogGraphGenerator
+add_node	./graphgen.py	/^    def add_node(self, node, label=None, color='black'):$/;"	m	class:VerilogGraphGenerator
+appendBranchTree	./bindvisitor.py	/^    def appendBranchTree(self, base, pos, tree):$/;"	m	class:BindVisitor
+appendTail	./merge.py	/^    def appendTail(self, appended, target):$/;"	m	class:VerilogDataflowMerge
+attr_names	./dataflow.py	/^    attr_names = ('name',)$/;"	v	class:DFTerminal
+attr_names	./dataflow.py	/^    attr_names = ('operator',)$/;"	v	class:DFOperator
+attr_names	./dataflow.py	/^    attr_names = ('value', 'width',)$/;"	v	class:DFEvalValue
+attr_names	./dataflow.py	/^    attr_names = ('value',)$/;"	v	class:DFConstant
+attr_names	./dataflow.py	/^    attr_names = ('width',)$/;"	v	class:DFHighImpedance
+attr_names	./dataflow.py	/^    attr_names = ('width',)$/;"	v	class:DFUndefined
+attr_names	./dataflow.py	/^    attr_names = ()$/;"	v	class:DFBranch
+attr_names	./dataflow.py	/^    attr_names = ()$/;"	v	class:DFConcat
+attr_names	./dataflow.py	/^    attr_names = ()$/;"	v	class:DFDelay
+attr_names	./dataflow.py	/^    attr_names = ()$/;"	v	class:DFNode
+attr_names	./dataflow.py	/^    attr_names = ()$/;"	v	class:DFPartselect
+attr_names	./dataflow.py	/^    attr_names = ()$/;"	v	class:DFPointer
+attr_names	./dataflow.py	/^    attr_names = ()$/;"	v	class:DFSyscall
+bindkey	./bindvisitor.py	/^        def bindkey(x):$/;"	f	function:BindVisitor.getMergedTree
+bindkey	./merge.py	/^        def bindkey(x):$/;"	f	function:VerilogDataflowMerge.getMergedTree
+bindkey	./merge.py	/^        def bindkey(x):$/;"	f	function:VerilogDataflowMerge.mergeBindlist
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFBranch
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFConcat
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFConstant
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFDelay
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFEvalValue
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFHighImpedance
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFNode
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFOperator
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFPartselect
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFPointer
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFSyscall
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFTerminal
+children	./dataflow.py	/^    def children(self):$/;"	m	class:DFUndefined
+compare_ops	./optimizer.py	/^    compare_ops = ('LessThan', 'GreaterThan', 'LassEq', 'GreaterEq', 'Eq', 'NotEq', 'Eql', 'NotEql')$/;"	v	class:VerilogOptimizer
+copyAllFrameInfo	./bindvisitor.py	/^    def copyAllFrameInfo(self):$/;"	m	class:BindVisitor
+copyBlockingAssigns	./bindvisitor.py	/^    def copyBlockingAssigns(self, scope_copy_from, scope_copy_to):$/;"	m	class:BindVisitor
+copyDefinition	./visit.py	/^    def copyDefinition(self, f, t):$/;"	m	class:DefinitionInfoTable
+copyDefinition	./visit.py	/^    def copyDefinition(self, f, t):$/;"	m	class:ModuleInfoTable
+copyFrameInfo	./bindvisitor.py	/^    def copyFrameInfo(self, current):$/;"	m	class:BindVisitor
+copyPreviousNonblockingAssign	./bindvisitor.py	/^    def copyPreviousNonblockingAssign(self, scope):$/;"	m	class:BindVisitor
+default_width	./optimizer.py	/^    default_width = 32$/;"	v	class:VerilogOptimizer
+dfnodelist	./dataflow.py	/^dfnodelist = ('DFIntConst', 'DFFloatConst', 'DFStringConst',$/;"	v
+diffBranchTree	./bindvisitor.py	/^    def diffBranchTree(self, tree, condlist, flowlist, matchflowlist=()):$/;"	m	class:BindVisitor
+draw	./graphgen.py	/^    def draw(self, filename=None):$/;"	m	class:VerilogGraphGenerator
+eval	./dataflow.py	/^    def eval(self):$/;"	m	class:DFConstant
+eval	./dataflow.py	/^    def eval(self):$/;"	m	class:DFEvalValue
+eval	./dataflow.py	/^    def eval(self):$/;"	m	class:DFFloatConst
+eval	./dataflow.py	/^    def eval(self):$/;"	m	class:DFIntConst
+eval	./dataflow.py	/^    def eval(self):$/;"	m	class:DFStringConst
+evalConcat	./optimizer.py	/^    def evalConcat(self, nextnodes):$/;"	m	class:VerilogOptimizer
+evalNextnodes	./optimizer.py	/^    def evalNextnodes(self, nextnodes):$/;"	m	class:VerilogOptimizer
+evalOperator	./optimizer.py	/^    def evalOperator(self, operator, nextnodes):$/;"	m	class:VerilogOptimizer
+evalPartselect	./optimizer.py	/^    def evalPartselect(self, var, msb, lsb):$/;"	m	class:VerilogOptimizer
+evalPointer	./optimizer.py	/^    def evalPointer(self, var, ptr):$/;"	m	class:VerilogOptimizer
+frametype_list	./visit.py	/^frametype_list = ('ifthen', 'ifelse', 'case', 'for', 'while', 'none','always')$/;"	v
+generate	./dataflow_analyzer.py	/^    def generate(self):$/;"	m	class:VerilogDataflowAnalyzer
+generate	./graphgen.py	/^    def generate(self, signalname, identical=False, walk=True, step=1, reorder=False, delay=False):$/;"	m	class:VerilogGraphGenerator
+generateCode	./dataflow_codegen.py	/^    def generateCode(self, targets=()):$/;"	m	class:VerilogCodeGenerator
+generateEntireCode	./dataflow_codegen.py	/^    def generateEntireCode(self):$/;"	m	class:VerilogCodeGenerator
+generateSubsetCode	./dataflow_codegen.py	/^    def generateSubsetCode(self, targets):$/;"	m	class:VerilogCodeGenerator
+generateWalkTree	./dataflow.py	/^def generateWalkTree(offset=1):$/;"	f
+generic_visit	./graphgen.py	/^    def generic_visit(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+generic_visit	./visit.py	/^    def generic_visit(self, node):$/;"	m	class:NodeVisitor
+get	./visit.py	/^    def get(self):$/;"	m	class:Label
+get	./visit.py	/^    def get(self, name):$/;"	m	class:Labels
+get	./visit.py	/^    def get(self, name):$/;"	m	class:VariableTable
+getAllConsts	./visit.py	/^    def getAllConsts(self):$/;"	m	class:FrameTable
+getAllFunctions	./visit.py	/^    def getAllFunctions(self):$/;"	m	class:FrameTable
+getAllInstances	./visit.py	/^    def getAllInstances(self):$/;"	m	class:FrameTable
+getAllSignals	./visit.py	/^    def getAllSignals(self):$/;"	m	class:FrameTable
+getAllTasks	./visit.py	/^    def getAllTasks(self):$/;"	m	class:FrameTable
+getAlways	./visit.py	/^    def getAlways(self):$/;"	m	class:ModuleInfo
+getAlways	./visit.py	/^    def getAlways(self, name=''):$/;"	m	class:ModuleInfoTable
+getAlwaysData	./visit.py	/^    def getAlwaysData(self, node):$/;"	m	class:ModuleInfo
+getAlwaysData	./visit.py	/^    def getAlwaysData(self, node, name=''):$/;"	m	class:ModuleInfoTable
+getAlwaysInfo	./visit.py	/^    def getAlwaysInfo(self):$/;"	m	class:Frame
+getAlwaysInfo	./visit.py	/^    def getAlwaysInfo(self):$/;"	m	class:FrameTable
+getAlwaysStatus	./visit.py	/^    def getAlwaysStatus(self):$/;"	m	class:FrameTable
+getAssignType	./merge.py	/^    def getAssignType(self, termname, bind):$/;"	m	class:VerilogDataflowMerge
+getBindSourceSubset	./subset.py	/^    def getBindSourceSubset(self, targets):$/;"	m	class:VerilogSubset
+getBindSources	./merge.py	/^    def getBindSources(self, termname):$/;"	m	class:VerilogDataflowMerge
+getBindSubset	./subset.py	/^    def getBindSubset(self, termname, visited_sources=set()):$/;"	m	class:VerilogSubset
+getBinddict	./dataflow.py	/^    def getBinddict(self):$/;"	m	class:DataFlow
+getBinddict	./dataflow_analyzer.py	/^    def getBinddict(self):$/;"	m	class:VerilogDataflowAnalyzer
+getBindinfoSources	./merge.py	/^    def getBindinfoSources(self, termname):$/;"	m	class:VerilogDataflowMerge
+getBindlist	./bindvisitor.py	/^    def getBindlist(self, name):$/;"	m	class:BindVisitor
+getBindlist	./dataflow.py	/^    def getBindlist(self, name):$/;"	m	class:DataFlow
+getBindlist	./merge.py	/^    def getBindlist(self, termname):$/;"	m	class:VerilogDataflowMerge
+getBlockingAssign	./visit.py	/^    def getBlockingAssign(self, dst):$/;"	m	class:Frame
+getBlockingAssign	./visit.py	/^    def getBlockingAssign(self, dst, scope):$/;"	m	class:FrameTable
+getBlockingAssigns	./visit.py	/^    def getBlockingAssigns(self):$/;"	m	class:Frame
+getBlockingAssigns	./visit.py	/^    def getBlockingAssigns(self):$/;"	m	class:FrameTable
+getBlockingAssignsScope	./visit.py	/^    def getBlockingAssignsScope(self, scope):$/;"	m	class:FrameTable
+getClockBit	./dataflow.py	/^    def getClockBit(self):$/;"	m	class:Bind
+getClockBit	./visit.py	/^    def getClockBit(self):$/;"	m	class:AlwaysInfo
+getClockEdge	./dataflow.py	/^    def getClockEdge(self):$/;"	m	class:Bind
+getClockEdge	./visit.py	/^    def getClockEdge(self):$/;"	m	class:AlwaysInfo
+getClockName	./dataflow.py	/^    def getClockName(self):$/;"	m	class:Bind
+getClockName	./visit.py	/^    def getClockName(self):$/;"	m	class:AlwaysInfo
+getCondflow	./bindvisitor.py	/^    def getCondflow(self, scope):$/;"	m	class:BindVisitor
+getCondition	./visit.py	/^    def getCondition(self):$/;"	m	class:Frame
+getCondition	./visit.py	/^    def getCondition(self):$/;"	m	class:FrameTable
+getCondlist	./bindvisitor.py	/^    def getCondlist(self, scope):$/;"	m	class:BindVisitor
+getConst	./visit.py	/^    def getConst(self, name):$/;"	m	class:Variables
+getConstant	./bindvisitor.py	/^    def getConstant(self, name):$/;"	m	class:BindVisitor
+getConstant	./optimizer.py	/^    def getConstant(self, name):$/;"	m	class:VerilogOptimizer
+getConstant	./signalvisitor.py	/^    def getConstant(self, name):$/;"	m	class:SignalVisitor
+getConstant	./visit.py	/^    def getConstant(self, name):$/;"	m	class:Frame
+getConstantDefinition	./visit.py	/^    def getConstantDefinition(self, key, name):$/;"	m	class:FrameTable
+getConstlist	./optimizer.py	/^    def getConstlist(self):$/;"	m	class:VerilogDataflowOptimizer
+getConstlist	./optimizer.py	/^    def getConstlist(self):$/;"	m	class:VerilogOptimizer
+getConsts	./dataflow_analyzer.py	/^    def getConsts(self):$/;"	m	class:VerilogDataflowAnalyzer
+getConsts	./visit.py	/^    def getConsts(self):$/;"	m	class:DefinitionInfo
+getConsts	./visit.py	/^    def getConsts(self):$/;"	m	class:Frame
+getConsts	./visit.py	/^    def getConsts(self):$/;"	m	class:Variables
+getConsts	./visit.py	/^    def getConsts(self, name):$/;"	m	class:DefinitionInfoTable
+getConsts	./visit.py	/^    def getConsts(self, name):$/;"	m	class:ModuleInfoTable
+getConsts	./visit.py	/^    def getConsts(self, scope):$/;"	m	class:FrameTable
+getControl	./visit.py	/^    def getControl(self):$/;"	m	class:AlwaysData
+getCurrent	./visit.py	/^    def getCurrent(self):$/;"	m	class:FrameTable
+getCurrentAlwaysData	./visit.py	/^    def getCurrentAlwaysData(self):$/;"	m	class:ModuleInfo
+getCurrentAlwaysData	./visit.py	/^    def getCurrentAlwaysData(self, name=''):$/;"	m	class:ModuleInfoTable
+getData	./visit.py	/^    def getData(self):$/;"	m	class:AlwaysData
+getDataflows	./bindvisitor.py	/^    def getDataflows(self):$/;"	m	class:BindVisitor
+getDefinition	./visit.py	/^    def getDefinition(self):$/;"	m	class:DefinitionInfo
+getDefinition	./visit.py	/^    def getDefinition(self, name):$/;"	m	class:DefinitionInfoTable
+getDefinition	./visit.py	/^    def getDefinition(self, name):$/;"	m	class:ModuleInfoTable
+getDefinitions	./visit.py	/^    def getDefinitions(self):$/;"	m	class:DefinitionInfoTable
+getDefinitions	./visit.py	/^    def getDefinitions(self):$/;"	m	class:ModuleInfoTable
+getDestinations	./bindvisitor.py	/^    def getDestinations(self, left, scope):$/;"	m	class:BindVisitor
+getDict	./visit.py	/^    def getDict(self):$/;"	m	class:VariableTable
+getDst	./bindvisitor.py	/^    def getDst(self, left, scope):$/;"	m	class:BindVisitor
+getDsts	./bindvisitor.py	/^    def getDsts(self, left, scope):$/;"	m	class:BindVisitor
+getEntire	./subset.py	/^    def getEntire(self):$/;"	m	class:VerilogSubset
+getFitTree	./bindvisitor.py	/^    def getFitTree(self, bindlist, msb, lsb):$/;"	m	class:BindVisitor
+getFlowlist	./bindvisitor.py	/^    def getFlowlist(self, scope):$/;"	m	class:BindVisitor
+getForIter	./visit.py	/^    def getForIter(self):$/;"	m	class:FrameTable
+getFrameTable	./bindvisitor.py	/^    def getFrameTable(self):$/;"	m	class:BindVisitor
+getFrameTable	./dataflow_analyzer.py	/^    def getFrameTable(self):$/;"	m	class:VerilogDataflowAnalyzer
+getFrameTable	./signalvisitor.py	/^    def getFrameTable(self):$/;"	m	class:SignalVisitor
+getFrametype	./visit.py	/^    def getFrametype(self):$/;"	m	class:Frame
+getFrametype	./visit.py	/^    def getFrametype(self):$/;"	m	class:FrameTable
+getFunction	./dataflow.py	/^    def getFunction(self, name):$/;"	m	class:DataFlow
+getFunctionPorts	./dataflow.py	/^    def getFunctionPorts(self, name):$/;"	m	class:DataFlow
+getFunctions	./visit.py	/^    def getFunctions(self):$/;"	m	class:Frame
+getFunctions	./visit.py	/^    def getFunctions(self, scope):$/;"	m	class:FrameTable
+getGenerateConditions	./visit.py	/^    def getGenerateConditions(self):$/;"	m	class:FrameTable
+getGenvar	./visit.py	/^    def getGenvar(self, name):$/;"	m	class:Variables
+getIOPorts	./visit.py	/^    def getIOPorts(self):$/;"	m	class:DefinitionInfo
+getIOPorts	./visit.py	/^    def getIOPorts(self, name):$/;"	m	class:DefinitionInfoTable
+getIOPorts	./visit.py	/^    def getIOPorts(self, name):$/;"	m	class:ModuleInfoTable
+getInstances	./dataflow_analyzer.py	/^    def getInstances(self):$/;"	m	class:VerilogDataflowAnalyzer
+getLabelKey	./visit.py	/^    def getLabelKey(self, name):$/;"	m	class:FrameTable
+getLoop	./visit.py	/^    def getLoop(self):$/;"	m	class:FrameTable
+getLoopIter	./visit.py	/^    def getLoopIter(self):$/;"	m	class:FrameTable
+getMergedTree	./bindvisitor.py	/^    def getMergedTree(self, bindlist):$/;"	m	class:BindVisitor
+getMergedTree	./merge.py	/^    def getMergedTree(self, optimized_bindlist):$/;"	m	class:VerilogDataflowMerge
+getModuleName	./visit.py	/^    def getModuleName(self):$/;"	m	class:Frame
+getModuleName	./visit.py	/^    def getModuleName(self):$/;"	m	class:FrameTable
+getModuleScopeChain	./bindvisitor.py	/^    def getModuleScopeChain(self, target):$/;"	m	class:BindVisitor
+getName	./visit.py	/^    def getName(self):$/;"	m	class:Frame
+getNext	./visit.py	/^    def getNext(self):$/;"	m	class:Frame
+getNonblockingAssigns	./visit.py	/^    def getNonblockingAssigns(self):$/;"	m	class:Frame
+getNonblockingAssigns	./visit.py	/^    def getNonblockingAssigns(self):$/;"	m	class:FrameTable
+getOptimizedBindlist	./merge.py	/^    def getOptimizedBindlist(self, bindlist):$/;"	m	class:VerilogDataflowMerge
+getParamNames	./visit.py	/^    def getParamNames(self):$/;"	m	class:DefinitionInfo
+getParamNames	./visit.py	/^    def getParamNames(self, name):$/;"	m	class:DefinitionInfoTable
+getParamNames	./visit.py	/^    def getParamNames(self, name):$/;"	m	class:ModuleInfoTable
+getPositionsFromRange	./merge.py	/^    def getPositionsFromRange(self, matched_range, search_ptr):$/;"	m	class:VerilogDataflowMerge
+getPrevious	./visit.py	/^    def getPrevious(self):$/;"	m	class:Frame
+getPreviousNonblockingAssign	./visit.py	/^    def getPreviousNonblockingAssign(self):$/;"	m	class:FrameTable
+getRenamedDst	./bindvisitor.py	/^    def getRenamedDst(self, dst):$/;"	m	class:BindVisitor
+getResetBit	./dataflow.py	/^    def getResetBit(self):$/;"	m	class:Bind
+getResetBit	./visit.py	/^    def getResetBit(self):$/;"	m	class:AlwaysInfo
+getResetEdge	./dataflow.py	/^    def getResetEdge(self):$/;"	m	class:Bind
+getResetEdge	./visit.py	/^    def getResetEdge(self):$/;"	m	class:AlwaysInfo
+getResetName	./dataflow.py	/^    def getResetName(self):$/;"	m	class:Bind
+getResetName	./visit.py	/^    def getResetName(self):$/;"	m	class:AlwaysInfo
+getResolvedBinddict	./optimizer.py	/^    def getResolvedBinddict(self):$/;"	m	class:VerilogDataflowOptimizer
+getResolvedBindlist	./merge.py	/^    def getResolvedBindlist(self, termname):$/;"	m	class:VerilogDataflowMerge
+getResolvedTerm	./merge.py	/^    def getResolvedTerm(self, termname):$/;"	m	class:VerilogDataflowMerge
+getResolvedTerms	./optimizer.py	/^    def getResolvedTerms(self):$/;"	m	class:VerilogDataflowOptimizer
+getResolvedTree	./merge.py	/^    def getResolvedTree(self, termname, ptr=None):$/;"	m	class:VerilogDataflowMerge
+getScope	./dataflow.py	/^    def getScope(self, termname):$/;"	m	class:Term
+getSenslist	./dataflow.py	/^    def getSenslist(self):$/;"	m	class:Bind
+getSignal	./visit.py	/^    def getSignal(self, name):$/;"	m	class:Frame
+getSignal	./visit.py	/^    def getSignal(self, name):$/;"	m	class:Variables
+getSignals	./dataflow_analyzer.py	/^    def getSignals(self):$/;"	m	class:VerilogDataflowAnalyzer
+getSignals	./visit.py	/^    def getSignals(self):$/;"	m	class:DefinitionInfo
+getSignals	./visit.py	/^    def getSignals(self):$/;"	m	class:Frame
+getSignals	./visit.py	/^    def getSignals(self):$/;"	m	class:Variables
+getSignals	./visit.py	/^    def getSignals(self, name):$/;"	m	class:DefinitionInfoTable
+getSignals	./visit.py	/^    def getSignals(self, name):$/;"	m	class:ModuleInfoTable
+getSignals	./visit.py	/^    def getSignals(self, scope):$/;"	m	class:FrameTable
+getSources	./merge.py	/^    def getSources(self, tree):$/;"	m	class:VerilogDataflowMerge
+getState	./visit.py	/^    def getState(self):$/;"	m	class:AlwaysData
+getSubset	./subset.py	/^    def getSubset(self, targets):$/;"	m	class:VerilogSubset
+getTask	./dataflow.py	/^    def getTask(self, name):$/;"	m	class:DataFlow
+getTaskPorts	./dataflow.py	/^    def getTaskPorts(self, name):$/;"	m	class:DataFlow
+getTasks	./visit.py	/^    def getTasks(self):$/;"	m	class:Frame
+getTasks	./visit.py	/^    def getTasks(self, scope):$/;"	m	class:FrameTable
+getTemporalValue	./dataflow.py	/^    def getTemporalValue(self, name):$/;"	m	class:DataFlow
+getTerm	./bindvisitor.py	/^    def getTerm(self, name):$/;"	m	class:BindVisitor
+getTerm	./dataflow.py	/^    def getTerm(self, name):$/;"	m	class:DataFlow
+getTerm	./merge.py	/^    def getTerm(self, termname):$/;"	m	class:VerilogDataflowMerge
+getTerm	./optimizer.py	/^    def getTerm(self, name):$/;"	m	class:VerilogDataflowOptimizer
+getTerm	./optimizer.py	/^    def getTerm(self, name):$/;"	m	class:VerilogOptimizer
+getTermLength	./bindvisitor.py	/^    def getTermLength(self, name):$/;"	m	class:BindVisitor
+getTermSources	./merge.py	/^    def getTermSources(self, termname):$/;"	m	class:VerilogDataflowMerge
+getTermWidth	./bindvisitor.py	/^    def getTermWidth(self, name):$/;"	m	class:BindVisitor
+getTerms	./dataflow.py	/^    def getTerms(self):$/;"	m	class:DataFlow
+getTerms	./dataflow_analyzer.py	/^    def getTerms(self):$/;"	m	class:VerilogDataflowAnalyzer
+getTermtype	./bindvisitor.py	/^    def getTermtype(self, name):$/;"	m	class:BindVisitor
+getTermtype	./merge.py	/^    def getTermtype(self, termname):$/;"	m	class:VerilogDataflowMerge
+getTree	./bindvisitor.py	/^    def getTree(self, node, scope):$/;"	m	class:BindVisitor
+getTree	./merge.py	/^    def getTree(self, termname, ptr=None):$/;"	m	class:VerilogDataflowMerge
+getTree	./signalvisitor.py	/^    def getTree(self, node, scope):$/;"	m	class:SignalVisitor
+getTreeSources	./merge.py	/^    def getTreeSources(self, tree):$/;"	m	class:VerilogDataflowMerge
+getWidth	./optimizer.py	/^    def getWidth(self, node):$/;"	m	class:VerilogOptimizer
+get_moduleinfotable	./modulevisitor.py	/^    def get_moduleinfotable(self):$/;"	m	class:ModuleVisitor
+get_modulenames	./modulevisitor.py	/^    def get_modulenames(self):$/;"	m	class:ModuleVisitor
+get_names	./visit.py	/^    def get_names(self):$/;"	m	class:DefinitionInfoTable
+get_names	./visit.py	/^    def get_names(self):$/;"	m	class:ModuleInfoTable
+getdest	./dataflow.py	/^    def getdest(self):$/;"	m	class:Bind
+has	./visit.py	/^    def has(self, name):$/;"	m	class:VariableTable
+hasConst	./visit.py	/^    def hasConst(self, name):$/;"	m	class:Variables
+hasConstant	./bindvisitor.py	/^    def hasConstant(self, name):$/;"	m	class:BindVisitor
+hasConstant	./optimizer.py	/^    def hasConstant(self, name):$/;"	m	class:VerilogOptimizer
+hasConstant	./signalvisitor.py	/^    def hasConstant(self, name):$/;"	m	class:SignalVisitor
+hasConstant	./visit.py	/^    def hasConstant(self, name):$/;"	m	class:Frame
+hasConstantTerm	./signalvisitor.py	/^    def hasConstantTerm(self, name):$/;"	m	class:SignalVisitor
+hasFrame	./visit.py	/^    def hasFrame(self, scope):$/;"	m	class:FrameTable
+hasFunction	./dataflow.py	/^    def hasFunction(self, name):$/;"	m	class:DataFlow
+hasSignal	./visit.py	/^    def hasSignal(self, name):$/;"	m	class:Frame
+hasSignal	./visit.py	/^    def hasSignal(self, name):$/;"	m	class:Variables
+hasTask	./dataflow.py	/^    def hasTask(self, name):$/;"	m	class:DataFlow
+hasTerm	./dataflow.py	/^    def hasTerm(self, name):$/;"	m	class:DataFlow
+hasTerm	./optimizer.py	/^    def hasTerm(self, name):$/;"	m	class:VerilogOptimizer
+inc	./visit.py	/^    def inc(self):$/;"	m	class:Label
+inc	./visit.py	/^    def inc(self, name):$/;"	m	class:Labels
+insertBranch	./reorder.py	/^def insertBranch(base, truenode, falsenode):$/;"	f
+insertConcat	./reorder.py	/^def insertConcat(nextnodes):$/;"	f
+insertOp	./reorder.py	/^def insertOp(left, right, op):$/;"	f
+insertOpList	./reorder.py	/^def insertOpList(nextnodes, op):$/;"	f
+insertPartselect	./reorder.py	/^def insertPartselect(var, msb, lsb):$/;"	f
+insertPointer	./reorder.py	/^def insertPointer(var, ptr):$/;"	f
+insertUnaryOp	./reorder.py	/^def insertUnaryOp(base, op):$/;"	f
+isAlways	./visit.py	/^    def isAlways(self):$/;"	m	class:Frame
+isAlways	./visit.py	/^    def isAlways(self):$/;"	m	class:FrameTable
+isClockEdge	./dataflow.py	/^    def isClockEdge(self):$/;"	m	class:Bind
+isClockEdge	./merge.py	/^    def isClockEdge(self, termname, msb=None, lsb=None, ptr=None):$/;"	m	class:VerilogDataflowMerge
+isClockEdge	./visit.py	/^    def isClockEdge(self):$/;"	m	class:AlwaysInfo
+isCombination	./dataflow.py	/^    def isCombination(self):$/;"	m	class:Bind
+isCombination	./merge.py	/^    def isCombination(self,termname):$/;"	m	class:VerilogDataflowMerge
+isCombination	./visit.py	/^    def isCombination(self):$/;"	m	class:AlwaysInfo
+isCondTrue	./optimizer.py	/^    def isCondTrue(self, cond):$/;"	m	class:VerilogOptimizer
+isForpost	./visit.py	/^    def isForpost(self):$/;"	m	class:FrameTable
+isForpre	./visit.py	/^    def isForpre(self):$/;"	m	class:FrameTable
+isFunctioncall	./visit.py	/^    def isFunctioncall(self):$/;"	m	class:Frame
+isFunctioncall	./visit.py	/^    def isFunctioncall(self):$/;"	m	class:FrameTable
+isFunctiondef	./visit.py	/^    def isFunctiondef(self):$/;"	m	class:FrameTable
+isGenerate	./visit.py	/^    def isGenerate(self):$/;"	m	class:Frame
+isGenerate	./visit.py	/^    def isGenerate(self):$/;"	m	class:FrameTable
+isIfelse	./visit.py	/^    def isIfelse(self):$/;"	m	class:Frame
+isInitial	./visit.py	/^    def isInitial(self):$/;"	m	class:Frame
+isInitial	./visit.py	/^    def isInitial(self):$/;"	m	class:FrameTable
+isModule	./visit.py	/^    def isModule(self):$/;"	m	class:Frame
+isModule	./visit.py	/^    def isModule(self):$/;"	m	class:FrameTable
+isResetEdge	./visit.py	/^    def isResetEdge(self):$/;"	m	class:AlwaysInfo
+isTaskcall	./visit.py	/^    def isTaskcall(self):$/;"	m	class:Frame
+isTaskcall	./visit.py	/^    def isTaskcall(self):$/;"	m	class:FrameTable
+isTaskdef	./visit.py	/^    def isTaskdef(self):$/;"	m	class:FrameTable
+isTopmodule	./dataflow.py	/^    def isTopmodule(self, scope):$/;"	m	class:Term
+makeBind	./bindvisitor.py	/^    def makeBind(self, name, msb, lsb, ptr, part_msb, part_lsb,$/;"	m	class:BindVisitor
+makeBranchTree	./bindvisitor.py	/^    def makeBranchTree(self, condlist, flowlist, node):$/;"	m	class:BindVisitor
+makeConstantTerm	./bindvisitor.py	/^    def makeConstantTerm(self, name, node, scope):$/;"	m	class:BindVisitor
+makeConstantTerm	./signalvisitor.py	/^    def makeConstantTerm(self, name, node, scope):$/;"	m	class:SignalVisitor
+makeDFTree	./bindvisitor.py	/^    def makeDFTree(self, node, scope):$/;"	m	class:BindVisitor
+makeDFTree	./signalvisitor.py	/^    def makeDFTree(self, node, scope):$/;"	m	class:SignalVisitor
+map_key	./visit.py	/^map_key   = lambda f,d: collections.OrderedDict([ (f(k),v) for k,v in d.items() ])$/;"	v
+map_value	./visit.py	/^map_value = lambda f,d: collections.OrderedDict([ (k,f(v)) for k,v in d.items() ])$/;"	v
+matchedRange	./merge.py	/^    def matchedRange(self, assigned_range, search_msb, search_lsb, search_ptr):$/;"	m	class:VerilogDataflowMerge
+mergeBindlist	./merge.py	/^    def mergeBindlist(self, bindlist):$/;"	m	class:VerilogDataflowMerge
+mergeConcat	./optimizer.py	/^    def mergeConcat(self, concatnode):$/;"	m	class:VerilogOptimizer
+mergeConcat_branch	./optimizer.py	/^    def mergeConcat_branch(self, concatnode):$/;"	m	class:VerilogOptimizer
+mergeConcat_constant	./optimizer.py	/^    def mergeConcat_constant(self, concatnode):$/;"	m	class:VerilogOptimizer
+mergeConcat_partselect	./optimizer.py	/^    def mergeConcat_partselect(self, concatnode):$/;"	m	class:VerilogOptimizer
+mergeConcat_undefined	./optimizer.py	/^    def mergeConcat_undefined(self, concatnode):$/;"	m	class:VerilogOptimizer
+mergeIdenticalNodes	./optimizer.py	/^    def mergeIdenticalNodes(self, node):$/;"	m	class:VerilogOptimizer
+mergeLand	./optimizer.py	/^    def mergeLand(self, node):$/;"	m	class:VerilogOptimizer
+mergeLandLor	./optimizer.py	/^    def mergeLandLor(self, node):$/;"	m	class:VerilogOptimizer
+mergeLor	./optimizer.py	/^    def mergeLor(self, node):$/;"	m	class:VerilogOptimizer
+mergeStaticNodes	./optimizer.py	/^    def mergeStaticNodes(self, node):$/;"	m	class:VerilogOptimizer
+mergeTree	./merge.py	/^    def mergeTree(self, first, second):$/;"	m	class:VerilogDataflowMerge
+optimize	./bindvisitor.py	/^    def optimize(self, node):$/;"	m	class:BindVisitor
+optimize	./optimizer.py	/^    def optimize(self, tree):$/;"	m	class:VerilogOptimizer
+optimize	./signalvisitor.py	/^    def optimize(self, node):$/;"	m	class:SignalVisitor
+optimizeConstant	./optimizer.py	/^    def optimizeConstant(self, tree):$/;"	m	class:VerilogOptimizer
+optimizeHierarchy	./optimizer.py	/^    def optimizeHierarchy(self, tree):$/;"	m	class:VerilogOptimizer
+overwriteDefinition	./visit.py	/^    def overwriteDefinition(self, name, definition):$/;"	m	class:DefinitionInfoTable
+overwriteDefinition	./visit.py	/^    def overwriteDefinition(self, name, definition):$/;"	m	class:ModuleInfoTable
+primitives	./visit.py	/^primitives = {$/;"	v
+printIndent	./dataflow.py	/^def printIndent(s, indent=4):$/;"	f
+printInfo	./visit.py	/^    def printInfo(self, buf=sys.stdout):$/;"	m	class:AlwaysData
+reduceIfScope	./bindvisitor.py	/^    def reduceIfScope(self, scope):$/;"	m	class:BindVisitor
+removeOverwrappedCondition	./bindvisitor.py	/^    def removeOverwrappedCondition(self, tree, current_bindlist, scope):$/;"	m	class:BindVisitor
+rename	./graphgen.py	/^    def rename(self, name):$/;"	m	class:VerilogGraphGenerator
+renameVar	./bindvisitor.py	/^    def renameVar(self, name):$/;"	m	class:BindVisitor
+reorder	./reorder.py	/^def reorder(tree):$/;"	f
+replaceOperator	./optimizer.py	/^    def replaceOperator(self, node):$/;"	m	class:VerilogOptimizer
+replaceUndefined	./replace.py	/^def replaceUndefined(tree, termname):$/;"	f
+resetConstant	./bindvisitor.py	/^    def resetConstant(self, name):$/;"	m	class:BindVisitor
+resetConstant	./optimizer.py	/^    def resetConstant(self, name):$/;"	m	class:VerilogOptimizer
+resolveBlockingAssign	./bindvisitor.py	/^    def resolveBlockingAssign(self, tree, scope):$/;"	m	class:BindVisitor
+resolveCondlist	./bindvisitor.py	/^    def resolveCondlist(self, condlist, scope):$/;"	m	class:BindVisitor
+resolveConstant	./optimizer.py	/^    def resolveConstant(self):$/;"	m	class:VerilogDataflowOptimizer
+searchConstantDefinition	./bindvisitor.py	/^    def searchConstantDefinition(self, key, name):$/;"	m	class:BindVisitor
+searchConstantDefinition	./signalvisitor.py	/^    def searchConstantDefinition(self, key, name):$/;"	m	class:SignalVisitor
+searchConstantDefinition	./visit.py	/^    def searchConstantDefinition(self, key, name):$/;"	m	class:FrameTable
+searchConstantValue	./signalvisitor.py	/^    def searchConstantValue(self, key, name):$/;"	m	class:SignalVisitor
+searchFunction	./bindvisitor.py	/^    def searchFunction(self, name, scope):$/;"	m	class:BindVisitor
+searchFunctionPorts	./bindvisitor.py	/^    def searchFunctionPorts(self, name, scope):$/;"	m	class:BindVisitor
+searchMatchedScopeChain	./visit.py	/^    def searchMatchedScopeChain(self, currentchain, targetchain):$/;"	m	class:FrameTable
+searchScopeConstantValue	./signalvisitor.py	/^    def searchScopeConstantValue(self, blocklabel, name):$/;"	m	class:SignalVisitor
+searchScopeTerminal	./bindvisitor.py	/^    def searchScopeTerminal(self, blocklabel, name, current):$/;"	m	class:BindVisitor
+searchSignalDefinition	./visit.py	/^    def searchSignalDefinition(self, key, name):$/;"	m	class:FrameTable
+searchTask	./bindvisitor.py	/^    def searchTask(self, name, scope):$/;"	m	class:BindVisitor
+searchTaskPorts	./bindvisitor.py	/^    def searchTaskPorts(self, name, scope):$/;"	m	class:BindVisitor
+searchTerminal	./bindvisitor.py	/^    def searchTerminal(self, name, scope):$/;"	m	class:BindVisitor
+setAlwaysInfo	./visit.py	/^    def setAlwaysInfo(self, clock_name, clock_edge, clock_bit,$/;"	m	class:Frame
+setAlwaysInfo	./visit.py	/^    def setAlwaysInfo(self, clock_name='', clock_edge=None, clock_bit=0,$/;"	m	class:FrameTable
+setBind	./dataflow.py	/^    def setBind(self, name, bind):$/;"	m	class:DataFlow
+setBlockingAssign	./visit.py	/^    def setBlockingAssign(self, dst, bind):$/;"	m	class:Frame
+setBlockingAssign	./visit.py	/^    def setBlockingAssign(self, dst, bind, scope):$/;"	m	class:FrameTable
+setConstant	./bindvisitor.py	/^    def setConstant(self, name, value):$/;"	m	class:BindVisitor
+setConstant	./optimizer.py	/^    def setConstant(self, name, value):$/;"	m	class:VerilogOptimizer
+setConstant	./signalvisitor.py	/^    def setConstant(self, name, value):$/;"	m	class:SignalVisitor
+setConstantTerm	./bindvisitor.py	/^    def setConstantTerm(self, name, term):$/;"	m	class:BindVisitor
+setConstantTerm	./signalvisitor.py	/^    def setConstantTerm(self, name, term):$/;"	m	class:SignalVisitor
+setCurrent	./visit.py	/^    def setCurrent(self, current):$/;"	m	class:FrameTable
+setCurrent	./visit.py	/^    def setCurrent(self, name):$/;"	m	class:DefinitionInfoTable
+setCurrent	./visit.py	/^    def setCurrent(self, name):$/;"	m	class:ModuleInfoTable
+setDataflow	./bindvisitor.py	/^    def setDataflow(self, dst, raw_tree, condlist, flowlist,$/;"	m	class:BindVisitor
+setDataflow_rename	./bindvisitor.py	/^    def setDataflow_rename(self, dst, raw_tree, condlist, flowlist,$/;"	m	class:BindVisitor
+setForIter	./visit.py	/^    def setForIter(self, iter):$/;"	m	class:FrameTable
+setForPost	./visit.py	/^    def setForPost(self):$/;"	m	class:FrameTable
+setForPre	./visit.py	/^    def setForPre(self):$/;"	m	class:FrameTable
+setFunctionDef	./visit.py	/^    def setFunctionDef(self):$/;"	m	class:FrameTable
+setInstanceConstantTerms	./signalvisitor.py	/^    def setInstanceConstantTerms(self):$/;"	m	class:SignalVisitor
+setInstanceConstants	./signalvisitor.py	/^    def setInstanceConstants(self):$/;"	m	class:SignalVisitor
+setInstanceSimpleConstantTerms	./signalvisitor.py	/^    def setInstanceSimpleConstantTerms(self):$/;"	m	class:SignalVisitor
+setNext	./visit.py	/^    def setNext(self, nextframe):$/;"	m	class:Frame
+setNonblockingAssign	./bindvisitor.py	/^    def setNonblockingAssign(self, name, dst, raw_tree, msb, lsb, ptr,$/;"	m	class:BindVisitor
+setRenamedFlow	./bindvisitor.py	/^    def setRenamedFlow(self, dst, renamed_dst, condlist, flowlist,$/;"	m	class:BindVisitor
+setRenamedTree	./bindvisitor.py	/^    def setRenamedTree(self, renamed_dst, raw_tree, alwaysinfo):$/;"	m	class:BindVisitor
+setTaskDef	./visit.py	/^    def setTaskDef(self):$/;"	m	class:FrameTable
+setTemporalValue	./dataflow.py	/^    def setTemporalValue(self, name, value):$/;"	m	class:DataFlow
+setTerm	./dataflow.py	/^    def setTerm(self, name, term):$/;"	m	class:DataFlow
+setTerm	./optimizer.py	/^    def setTerm(self, name, term):$/;"	m	class:VerilogOptimizer
+set_clock_info	./subset.py	/^    def set_clock_info(self, clock_name, clock_edge):$/;"	m	class:VerilogSubset
+set_reset_info	./subset.py	/^    def set_reset_info(self, reset_name, reset_edge):$/;"	m	class:VerilogSubset
+splitBind	./merge.py	/^    def splitBind(self, bind, splitpos):$/;"	m	class:VerilogDataflowMerge
+splitBindPositions	./merge.py	/^    def splitBindPositions(self, bind, split_positions):$/;"	m	class:VerilogDataflowMerge
+splitBindlist	./merge.py	/^    def splitBindlist(self, bindlist, split_positions):$/;"	m	class:VerilogDataflowMerge
+splitPositions	./merge.py	/^    def splitPositions(self, bindlist):$/;"	m	class:VerilogDataflowMerge
+stackInstanceFrame	./bindvisitor.py	/^    def stackInstanceFrame(self, instname, modulename):$/;"	m	class:BindVisitor
+stackInstanceFrame	./signalvisitor.py	/^    def stackInstanceFrame(self, instname, modulename):$/;"	m	class:SignalVisitor
+stackNextFrame	./bindvisitor.py	/^    def stackNextFrame(self, label, scopetype,$/;"	m	class:BindVisitor
+start_visit	./bindvisitor.py	/^    def start_visit(self):$/;"	m	class:BindVisitor
+start_visit	./signalvisitor.py	/^    def start_visit(self):$/;"	m	class:SignalVisitor
+takePart	./optimizer.py	/^    def takePart(self, nextnodes, msb, lsb):$/;"	m	class:VerilogOptimizer
+takePoint	./optimizer.py	/^    def takePoint(self, nextnodes, ptr):$/;"	m	class:VerilogOptimizer
+toScopeChain	./bindvisitor.py	/^    def toScopeChain(self, blocklabel, current):$/;"	m	class:BindVisitor
+toScopeChain	./signalvisitor.py	/^    def toScopeChain(self, blocklabel):$/;"	m	class:SignalVisitor
+toScopeChain	./visit.py	/^    def toScopeChain(self, scopename):$/;"	m	class:FrameTable
+tocode	./dataflow.py	/^    def tocode(self):$/;"	m	class:Bind
+tocode	./dataflow.py	/^    def tocode(self):$/;"	m	class:Term
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'): return self.__repr__()$/;"	m	class:DFNode
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFConcat
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFDelay
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFEvalValue
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFOperator
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFPartselect
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFPointer
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFSyscall
+tocode	./dataflow.py	/^    def tocode(self, dest='dest'):$/;"	m	class:DFTerminal
+tocode	./dataflow.py	/^    def tocode(self, dest='dest', always=''):$/;"	m	class:DFBranch
+tolabel	./dataflow.py	/^    def tolabel(self): return self.__repr__()$/;"	m	class:DFNode
+tolabel	./dataflow.py	/^    def tolabel(self):$/;"	m	class:DFTerminal
+tostr	./dataflow.py	/^    def tostr(self): pass$/;"	m	class:DFNode
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:Bind
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFBranch
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFConcat
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFConstant
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFDelay
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFEvalValue
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFFloatConst
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFHighImpedance
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFIntConst
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFOperator
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFPartselect
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFPointer
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFStringConst
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFSyscall
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFTerminal
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:DFUndefined
+tostr	./dataflow.py	/^    def tostr(self):$/;"	m	class:Term
+unmatchedRange	./merge.py	/^    def unmatchedRange(self, matched_range, search_msb, search_lsb, search_ptr):$/;"	m	class:VerilogDataflowMerge
+unsetForPost	./visit.py	/^    def unsetForPost(self):$/;"	m	class:FrameTable
+unsetForPre	./visit.py	/^    def unsetForPre(self):$/;"	m	class:FrameTable
+unsetFunctionDef	./visit.py	/^    def unsetFunctionDef(self):$/;"	m	class:FrameTable
+unsetTaskDef	./visit.py	/^    def unsetTaskDef(self):$/;"	m	class:FrameTable
+update	./visit.py	/^    def update(self, table):$/;"	m	class:VariableTable
+updateConst	./visit.py	/^    def updateConst(self, const):$/;"	m	class:Frame
+updateConst	./visit.py	/^    def updateConst(self, const):$/;"	m	class:FrameTable
+updateConst	./visit.py	/^    def updateConst(self, var):$/;"	m	class:Variables
+updateSignal	./visit.py	/^    def updateSignal(self, signal):$/;"	m	class:Frame
+updateSignal	./visit.py	/^    def updateSignal(self, signal):$/;"	m	class:FrameTable
+updateSignal	./visit.py	/^    def updateSignal(self, var):$/;"	m	class:Variables
+visit	./graphgen.py	/^    def visit(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit	./visit.py	/^    def visit(self, node):$/;"	m	class:NodeVisitor
+visit_Always	./bindvisitor.py	/^    def visit_Always(self, node):$/;"	m	class:BindVisitor
+visit_Always	./modulevisitor.py	/^    def visit_Always(self, node):$/;"	m	class:ModuleVisitor
+visit_Always	./signalvisitor.py	/^    def visit_Always(self, node):$/;"	m	class:SignalVisitor
+visit_Assign	./bindvisitor.py	/^    def visit_Assign(self, node):$/;"	m	class:BindVisitor
+visit_Assign	./modulevisitor.py	/^    def visit_Assign(self, node):$/;"	m	class:ModuleVisitor
+visit_Assign	./signalvisitor.py	/^    def visit_Assign(self, node):$/;"	m	class:SignalVisitor
+visit_Block	./bindvisitor.py	/^    def visit_Block(self, node):$/;"	m	class:BindVisitor
+visit_Block	./modulevisitor.py	/^    def visit_Block(self, node):$/;"	m	class:ModuleVisitor
+visit_Block	./signalvisitor.py	/^    def visit_Block(self, node):$/;"	m	class:SignalVisitor
+visit_BlockingSubstitution	./bindvisitor.py	/^    def visit_BlockingSubstitution(self, node):$/;"	m	class:BindVisitor
+visit_BlockingSubstitution	./modulevisitor.py	/^    def visit_BlockingSubstitution(self, node):$/;"	m	class:ModuleVisitor
+visit_BlockingSubstitution	./signalvisitor.py	/^    def visit_BlockingSubstitution(self, node):$/;"	m	class:SignalVisitor
+visit_CaseStatement	./bindvisitor.py	/^    def visit_CaseStatement(self, node):$/;"	m	class:BindVisitor
+visit_CaseStatement	./modulevisitor.py	/^    def visit_CaseStatement(self, node):$/;"	m	class:ModuleVisitor
+visit_CaseStatement	./signalvisitor.py	/^    def visit_CaseStatement(self, node):$/;"	m	class:SignalVisitor
+visit_CasexStatement	./bindvisitor.py	/^    def visit_CasexStatement(self, node):$/;"	m	class:BindVisitor
+visit_CasexStatement	./modulevisitor.py	/^    def visit_CasexStatement(self, node):$/;"	m	class:ModuleVisitor
+visit_CasexStatement	./signalvisitor.py	/^    def visit_CasexStatement(self, node):$/;"	m	class:SignalVisitor
+visit_DFBranch	./graphgen.py	/^    def visit_DFBranch(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFConcat	./graphgen.py	/^    def visit_DFConcat(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFDelay	./graphgen.py	/^    def visit_DFDelay(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFEvalValue	./graphgen.py	/^    def visit_DFEvalValue(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFFloatConst	./graphgen.py	/^    def visit_DFFloatConst(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFHighImpedance	./graphgen.py	/^    def visit_DFHighImpedance(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFIntConst	./graphgen.py	/^    def visit_DFIntConst(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFOperator	./graphgen.py	/^    def visit_DFOperator(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFPartselect	./graphgen.py	/^    def visit_DFPartselect(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFPointer	./graphgen.py	/^    def visit_DFPointer(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFStringConst	./graphgen.py	/^    def visit_DFStringConst(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFTerminal	./graphgen.py	/^    def visit_DFTerminal(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_DFUndefined	./graphgen.py	/^    def visit_DFUndefined(self, node, parent, color='black', edge_label=None):$/;"	m	class:VerilogGraphGenerator
+visit_ForStatement	./bindvisitor.py	/^    def visit_ForStatement(self, node):$/;"	m	class:BindVisitor
+visit_ForStatement	./signalvisitor.py	/^    def visit_ForStatement(self, node):$/;"	m	class:SignalVisitor
+visit_Function	./bindvisitor.py	/^    def visit_Function(self, node):$/;"	m	class:BindVisitor
+visit_Function	./modulevisitor.py	/^    def visit_Function(self, node):$/;"	m	class:ModuleVisitor
+visit_Function	./signalvisitor.py	/^    def visit_Function(self, node):$/;"	m	class:SignalVisitor
+visit_GenerateStatement	./bindvisitor.py	/^    def visit_GenerateStatement(self, node):$/;"	m	class:BindVisitor
+visit_GenerateStatement	./signalvisitor.py	/^    def visit_GenerateStatement(self, node):$/;"	m	class:SignalVisitor
+visit_Genvar	./bindvisitor.py	/^    def visit_Genvar(self, node):$/;"	m	class:BindVisitor
+visit_Genvar	./signalvisitor.py	/^    def visit_Genvar(self, node):$/;"	m	class:SignalVisitor
+visit_IfStatement	./bindvisitor.py	/^    def visit_IfStatement(self, node):$/;"	m	class:BindVisitor
+visit_IfStatement	./modulevisitor.py	/^    def visit_IfStatement(self, node):$/;"	m	class:ModuleVisitor
+visit_IfStatement	./signalvisitor.py	/^    def visit_IfStatement(self, node):$/;"	m	class:SignalVisitor
+visit_Initial	./bindvisitor.py	/^    def visit_Initial(self, node):$/;"	m	class:BindVisitor
+visit_Initial	./modulevisitor.py	/^    def visit_Initial(self, node):$/;"	m	class:ModuleVisitor
+visit_Initial	./signalvisitor.py	/^    def visit_Initial(self, node):$/;"	m	class:SignalVisitor
+visit_Inout	./bindvisitor.py	/^    def visit_Inout(self, node):$/;"	m	class:BindVisitor
+visit_Inout	./modulevisitor.py	/^    def visit_Inout(self, node):$/;"	m	class:ModuleVisitor
+visit_Inout	./signalvisitor.py	/^    def visit_Inout(self, node):$/;"	m	class:SignalVisitor
+visit_Input	./bindvisitor.py	/^    def visit_Input(self, node):$/;"	m	class:BindVisitor
+visit_Input	./modulevisitor.py	/^    def visit_Input(self, node):$/;"	m	class:ModuleVisitor
+visit_Input	./signalvisitor.py	/^    def visit_Input(self, node):$/;"	m	class:SignalVisitor
+visit_Instance	./bindvisitor.py	/^    def visit_Instance(self, node):$/;"	m	class:BindVisitor
+visit_Instance	./modulevisitor.py	/^    def visit_Instance(self, node):$/;"	m	class:ModuleVisitor
+visit_Instance	./signalvisitor.py	/^    def visit_Instance(self, node):$/;"	m	class:SignalVisitor
+visit_InstanceList	./bindvisitor.py	/^    def visit_InstanceList(self, node):$/;"	m	class:BindVisitor
+visit_InstanceList	./modulevisitor.py	/^    def visit_InstanceList(self, node):$/;"	m	class:ModuleVisitor
+visit_InstanceList	./signalvisitor.py	/^    def visit_InstanceList(self, node):$/;"	m	class:SignalVisitor
+visit_Integer	./bindvisitor.py	/^    def visit_Integer(self, node):$/;"	m	class:BindVisitor
+visit_Integer	./signalvisitor.py	/^    def visit_Integer(self, node):$/;"	m	class:SignalVisitor
+visit_Localparam	./bindvisitor.py	/^    def visit_Localparam(self, node):$/;"	m	class:BindVisitor
+visit_Localparam	./signalvisitor.py	/^    def visit_Localparam(self, node):$/;"	m	class:SignalVisitor
+visit_Locaparam	./modulevisitor.py	/^    def visit_Locaparam(self, node):$/;"	m	class:ModuleVisitor
+visit_ModuleDef	./bindvisitor.py	/^    def visit_ModuleDef(self, node):$/;"	m	class:BindVisitor
+visit_ModuleDef	./modulevisitor.py	/^    def visit_ModuleDef(self, node):$/;"	m	class:ModuleVisitor
+visit_NonblockingSubstitution	./bindvisitor.py	/^    def visit_NonblockingSubstitution(self, node):$/;"	m	class:BindVisitor
+visit_NonblockingSubstitution	./modulevisitor.py	/^    def visit_NonblockingSubstitution(self, node):$/;"	m	class:ModuleVisitor
+visit_NonblockingSubstitution	./signalvisitor.py	/^    def visit_NonblockingSubstitution(self, node): pass$/;"	m	class:SignalVisitor
+visit_Output	./bindvisitor.py	/^    def visit_Output(self, node):$/;"	m	class:BindVisitor
+visit_Output	./modulevisitor.py	/^    def visit_Output(self, node):$/;"	m	class:ModuleVisitor
+visit_Output	./signalvisitor.py	/^    def visit_Output(self, node):$/;"	m	class:SignalVisitor
+visit_Parameter	./bindvisitor.py	/^    def visit_Parameter(self, node):$/;"	m	class:BindVisitor
+visit_Parameter	./modulevisitor.py	/^    def visit_Parameter(self, node):$/;"	m	class:ModuleVisitor
+visit_Parameter	./signalvisitor.py	/^    def visit_Parameter(self, node):$/;"	m	class:SignalVisitor
+visit_Portlist	./modulevisitor.py	/^    def visit_Portlist(self, node):$/;"	m	class:ModuleVisitor
+visit_Pragma	./modulevisitor.py	/^    def visit_Pragma(self, node):$/;"	m	class:ModuleVisitor
+visit_Reg	./bindvisitor.py	/^    def visit_Reg(self, node):$/;"	m	class:BindVisitor
+visit_Reg	./signalvisitor.py	/^    def visit_Reg(self, node):$/;"	m	class:SignalVisitor
+visit_RegArray	./bindvisitor.py	/^    def visit_RegArray(self, node):$/;"	m	class:BindVisitor
+visit_RegArray	./signalvisitor.py	/^    def visit_RegArray(self, node):$/;"	m	class:SignalVisitor
+visit_Supply	./bindvisitor.py	/^    def visit_Supply(self, node):$/;"	m	class:BindVisitor
+visit_Supply	./signalvisitor.py	/^    def visit_Supply(self, node):$/;"	m	class:SignalVisitor
+visit_SystemCall	./bindvisitor.py	/^    def visit_SystemCall(self, node):$/;"	m	class:BindVisitor
+visit_Task	./bindvisitor.py	/^    def visit_Task(self, node):$/;"	m	class:BindVisitor
+visit_Task	./modulevisitor.py	/^    def visit_Task(self, node):$/;"	m	class:ModuleVisitor
+visit_Task	./signalvisitor.py	/^    def visit_Task(self, node):$/;"	m	class:SignalVisitor
+visit_Tri	./bindvisitor.py	/^    def visit_Tri(self, node):$/;"	m	class:BindVisitor
+visit_Tri	./signalvisitor.py	/^    def visit_Tri(self, node):$/;"	m	class:SignalVisitor
+visit_WhileStatement	./bindvisitor.py	/^    def visit_WhileStatement(self, node):$/;"	m	class:BindVisitor
+visit_WhileStatement	./signalvisitor.py	/^    def visit_WhileStatement(self, node):$/;"	m	class:SignalVisitor
+visit_Wire	./bindvisitor.py	/^    def visit_Wire(self, node):$/;"	m	class:BindVisitor
+visit_Wire	./signalvisitor.py	/^    def visit_Wire(self, node):$/;"	m	class:SignalVisitor
+visit_WireArray	./bindvisitor.py	/^    def visit_WireArray(self, node):$/;"	m	class:BindVisitor
+visit_WireArray	./signalvisitor.py	/^    def visit_WireArray(self, node):$/;"	m	class:SignalVisitor
+walkBind	./walker.py	/^    def walkBind(self, name, step=0):$/;"	m	class:VerilogDataflowWalker
+walkTree	./walker.py	/^    def walkTree(self, tree, visited=set([]), step=0, delay=False, msb=None, lsb=None, ptr=None):$/;"	m	class:VerilogDataflowWalker
+width	./dataflow.py	/^    def width(self):$/;"	m	class:DFIntConst
