@@ -18,6 +18,8 @@ import pyverilog.dataflow.replace as replace
 from pyverilog.dataflow.dataflow import *
 from pyverilog.dataflow.visit import *
 from pyverilog.dataflow.merge import VerilogDataflowMerge
+from pyverilog.dataflow.moduleinfo import *
+from pyverilog.dataflow.frames import *
 
 class VerilogDataflowWalker(VerilogDataflowMerge):
     def __init__(self, topmodule, terms, binddict, resolved_terms, resolved_binddict, constlist):

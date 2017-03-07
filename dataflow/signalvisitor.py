@@ -19,6 +19,8 @@ from pyverilog.dataflow.dataflow import *
 from pyverilog.dataflow.visit import *
 from pyverilog.dataflow.optimizer import VerilogOptimizer
 import pyverilog.dataflow.reorder as reorder
+from pyverilog.dataflow.moduleinfo import *
+from pyverilog.dataflow.frames import *
 
 class SignalVisitor(NodeVisitor):
     def __init__(self, moduleinfotable, top):

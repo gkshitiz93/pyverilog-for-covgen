@@ -23,6 +23,8 @@ from pyverilog.dataflow.visit import *
 from pyverilog.dataflow.optimizer import VerilogOptimizer
 import pyverilog.dataflow.reorder as reorder
 import pyverilog.dataflow.replace as replace
+from pyverilog.dataflow.moduleinfo import *
+from pyverilog.dataflow.frames import *
 
 class BindVisitor(NodeVisitor):
     def __init__(self, moduleinfotable, top, frames, noreorder=False):

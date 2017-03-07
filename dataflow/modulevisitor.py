@@ -14,6 +14,8 @@ import os
 import pyverilog.vparser.parser
 from pyverilog.vparser.ast import *
 from pyverilog.dataflow.visit import *
+from pyverilog.dataflow.moduleinfo import *
+from pyverilog.dataflow.frames import *
 
 class ModuleVisitor(NodeVisitor):
     def __init__(self):
