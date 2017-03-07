@@ -62,9 +62,6 @@ class AlwaysInfo(object):
         self.reset_edge = reset_edge
         self.reset_bit = reset_bit
         self.senslist = senslist
-        self.data = {}
-        self.control = {}
-        self.state = {}
     def getClockName(self):
         return self.clock_name
     def getClockEdge(self):
@@ -88,6 +85,13 @@ class AlwaysInfo(object):
         if self.reset_name != '' and self.reset_edge == 'posedge': return True
         if self.reset_name != '' and self.reset_edge == 'negedge': return True
         return False
+
+class AlwaysData(object):
+    def __init__(self, node):
+        self.node = node
+        self.data = {}
+        self.control = {}
+        self.state = {}
     def addData(self, var):
         for name in map(str,var.getIdentifiers([])):
             if name in self.data.keys():
@@ -136,6 +140,7 @@ class AlwaysInfo(object):
             for var in self.state.keys():
                 string+=var + '[' + str(self.state[var]) + '] '
             buf.write(string + '\n')
+
 
 
 ################################################################################
@@ -223,7 +228,6 @@ class DefinitionInfo(object):
         self.variables = Variables()
         self.ioports = []
         self.params = []
-        self.always = {}
     def addSignal(self, name, var):
         self.variables.addSignal(name, var)
     def addConst(self, name, var):
@@ -249,17 +253,20 @@ class DefinitionInfo(object):
     def getParamNames(self):
         return tuple(self.params)
 
-    def addAlways(self, node, alwaysinfo = None):
-        self.always[node]=alwaysinfo
+class ModuleInfo(DefinitionInfo):
+    def __init__(self, name, definition):
+        DefinitionInfo.__init__(self, name, definition)
+        self.always = {}
+
+    def addAlways(self, node, alwaysdata = None):
+        self.always[node]=alwaysdata
         return 
-    
-    def addAlwaysInfo(self, node, alwaysinfo):
+    def addAlwaysData(self, node, alwaysdata):
         if(node in self.always.keys()):
-            self.always[node]=alwaysinfo
+            self.always[node]=alwaysdata
         else:
             raise verror.DefinitionError('Already defined Always:')
         return 
-
     def getAlways(self):
         return self.always
 
@@ -273,10 +280,8 @@ class DefinitionInfoTable(object):
             raise verror.DefinitionError('Already defined: %s' % name)
         self.dict[name] = DefinitionInfo(name, definition)
         self.current = name
-
     def setCurrent(self, name):
         self.current = name
-
     def addPorts(self, ports):
         self.dict[self.current].addPorts(ports)
     def addPort(self, port):
@@ -287,25 +292,6 @@ class DefinitionInfoTable(object):
         self.dict[self.current].addConst(name, var)
     def addParamName(self, name):
         self.dict[self.current].addParamName(name)
-    
-    def addAlways(self, node, alwaysinfo = None, name=''):
-        if(name==''):
-            self.dict[self.current].addAlways(node, alwaysinfo)
-        else:
-            self.dict[name].addAlways(node, alwaysinfo)
-    
-    def addAlwaysInfo(self, node, alwaysinfo, name=''):
-        if(name==''):
-            self.dict[self.current].addAlwaysInfo(node, alwaysinfo)
-        else:
-            self.dict[name].addAlwaysInfo(node, alwaysinfo)
-    
-    def getAlways(self, name=''):
-        if(name in self.dict.keys()):
-            return self.dict[name].getAlways()
-        else:
-            return None
-
     def getSignals(self, name):
         if name not in self.dict: raise verror.DefinitionError('No such module: %s' % name)
         return self.dict[name].getSignals()
@@ -328,17 +314,81 @@ class DefinitionInfoTable(object):
         for dk, dv in self.dict.items():
             ret.append(dk)
         return ret
-
     def overwriteDefinition(self, name, definition):
         self.dict[name] = definition
-
     def copyDefinition(self, f, t):
         self.dict[t] = copy.deepcopy(self.dict[f])
         self.dict[t].definition.name = t
         self.dict[t].name = t
 
-class ModuleInfo(DefinitionInfo): pass
-class ModuleInfoTable(DefinitionInfoTable): pass
+class ModuleInfoTable(object):
+    def __init__(self):
+        self.dict = collections.OrderedDict()
+        self.current = None
+    def addDefinition(self, name, definition):
+        if name in self.dict:
+            raise verror.DefinitionError('Already defined: %s' % name)
+        self.dict[name] = ModuleInfo(name, definition)
+        self.current = name
+    def setCurrent(self, name):
+        self.current = name
+    def addPorts(self, ports):
+        self.dict[self.current].addPorts(ports)
+    def addPort(self, port):
+        self.dict[self.current].addPort(port)
+    def addSignal(self, name, var):
+        self.dict[self.current].addSignal(name, var)
+    def addConst(self, name, var):
+        self.dict[self.current].addConst(name, var)
+    def addParamName(self, name):
+        self.dict[self.current].addParamName(name)
+    def getSignals(self, name):
+        if name not in self.dict: raise verror.DefinitionError('No such module: %s' % name)
+        return self.dict[name].getSignals()
+    def getConsts(self, name):
+        if name not in self.dict: raise verror.DefinitionError('No such module: %s' % name)
+        return self.dict[name].getConsts()
+    def getDefinition(self, name):
+        if name not in self.dict: raise verror.DefinitionError('No such module: %s' % name)
+        return self.dict[name].getDefinition()
+    def getDefinitions(self):
+        return self.dict
+    def getIOPorts(self, name):
+        if name not in self.dict: raise verror.DefinitionError('No such module: %s' % name)
+        return self.dict[name].getIOPorts()
+    def getParamNames(self, name):
+        if name not in self.dict: raise verror.DefinitionError('No such module: %s' % name)
+        return self.dict[name].getParamNames()
+    def get_names(self):
+        ret = []
+        for dk, dv in self.dict.items():
+            ret.append(dk)
+        return ret
+    def overwriteDefinition(self, name, definition):
+        self.dict[name] = definition
+    def copyDefinition(self, f, t):
+        self.dict[t] = copy.deepcopy(self.dict[f])
+        self.dict[t].definition.name = t
+        self.dict[t].name = t
+    
+    def addAlways(self, node, alwaysdata = None, name=''):
+        if(name==''):
+            self.dict[self.current].addAlways(node, alwaysdata)
+        else:
+            self.dict[name].addAlways(node, alwaysdata)
+    
+    def addAlwaysData(self, node, alwaysdata, name=''):
+        if(name==''):
+            self.dict[self.current].addAlwaysData(node, alwaysdata)
+        else:
+            self.dict[name].addAlwaysData(node, alwaysdata)
+    
+    def getAlways(self, name=''):
+        if(name in self.dict.keys()):
+            return self.dict[name].getAlways()
+        else:
+            return None
+
 class FunctionInfo(DefinitionInfo): pass
 class FunctionInfoTable(DefinitionInfoTable): pass
 class TaskInfo(DefinitionInfo): pass
@@ -415,7 +465,6 @@ class Frame(object):
                       reset_name, reset_edge, reset_bit, senslist):
         self.alwaysinfo = AlwaysInfo(clock_name, clock_edge, clock_bit,
                                      reset_name, reset_edge, reset_bit, senslist)
-        return self.alwaysinfo
 
     def addSignal(self, node):
         self.variables.addSignal(node.name, node)
@@ -595,7 +644,7 @@ class FrameTable(object):
 
     def setAlwaysInfo(self, clock_name='', clock_edge=None, clock_bit=0,
                       reset_name='', reset_edge=None, reset_bit=0, senslist=()):
-        return self.dict[self.current].setAlwaysInfo(clock_name, clock_edge, clock_bit,
+        self.dict[self.current].setAlwaysInfo(clock_name, clock_edge, clock_bit,
                                               reset_name, reset_edge, reset_bit, senslist)
 
     def setCurrent(self, current):

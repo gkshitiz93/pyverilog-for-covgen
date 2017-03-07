@@ -50,7 +50,8 @@ class ModuleVisitor(NodeVisitor):
         pass
 
     def visit_Always(self, node):
-        self.moduleinfotable.addAlways(node)
+        pass
+        #MARKself.moduleinfotable.addAlways(node)
 
     def visit_Initial(self, node):
         pass

@@ -156,7 +156,7 @@ class SignalVisitor(NodeVisitor):
 
         self.setInstanceConstants()
         self.setInstanceConstantTerms()
-        self.moduleinfotable.setCurrent(node.module)
+        #MARKself.moduleinfotable.setCurrent(node.module)
         self.visit(self.moduleinfotable.getDefinition(node.module))
         self.frames.setCurrent(current)
 
@@ -168,8 +168,8 @@ class SignalVisitor(NodeVisitor):
         current = self.frames.addFrame(ScopeLabel(label, 'always'),
                                        generate=self.frames.isGenerate(),
                                        always=True,frametype='Always')
-        alwaysinfo=self.frames.setAlwaysInfo()
-        self.moduleinfotable.addAlwaysInfo(node=node, alwaysinfo=alwaysinfo)
+        #MARKalwaysinfo=self.frames.setAlwaysInfo()
+        #MARKself.moduleinfotable.addAlwaysInfo(node=node, alwaysinfo=alwaysinfo)
         self.generic_visit(node)
         self.frames.setCurrent(current)
 
@@ -194,7 +194,7 @@ class SignalVisitor(NodeVisitor):
 
         label = self._if_true(node)
         self._if_false(node, label)
-        self.frames.getAlwaysStatus().addControl(node.cond)
+        #MARKself.frames.getAlwaysStatus().addControl(node.cond)
 
     def _toELSE(self, label):
         return label + '_ELSE'
@@ -233,7 +233,7 @@ class SignalVisitor(NodeVisitor):
         start_frame = self.frames.getCurrent()
         self._case(node.comp, node.caselist)
         self.frames.setCurrent(start_frame)
-        self.frames.getAlwaysStatus().addControl(node.comp)
+        #MARKself.frames.getAlwaysStatus().addControl(node.comp)
 
     def visit_CasexStatement(self, node):
         return self.visit_CaseStatement(node)
@@ -346,8 +346,8 @@ class SignalVisitor(NodeVisitor):
         pass
 
     def visit_BlockingSubstitution(self, node):
-        self.frames.getAlwaysStatus().addData(node.right)
-        self.frames.getAlwaysStatus().addState(node.left)
+        #MARKself.frames.getAlwaysStatus().addData(node.right)
+        #MARKself.frames.getAlwaysStatus().addState(node.left)
         if self.frames.isForpre() or self.frames.isForpost():
             current = self.frames.getCurrent()
             name, definition = self.searchConstantDefinition(current,
@@ -356,9 +356,9 @@ class SignalVisitor(NodeVisitor):
             self.setConstant(name, value)
             self.frames.setForIter(name)
 
-    def visit_NonblockingSubstitution(self, node):
-        self.frames.getAlwaysStatus().addData(node.right)
-        self.frames.getAlwaysStatus().addState(node.left)
+    def visit_NonblockingSubstitution(self, node): pass
+        #MARKself.frames.getAlwaysStatus().addData(node.right)
+        #MARKself.frames.getAlwaysStatus().addState(node.left)
 
 
     ############################################################################
