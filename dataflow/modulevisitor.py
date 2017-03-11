@@ -55,7 +55,6 @@ class ModuleVisitor(NodeVisitor):
 
     def visit_Always(self, node):
         alwaysdata=AlwaysData(node)
-        self.temp=node
         self.moduleinfotable.addAlways(node=node, alwaysdata=alwaysdata)
         self.generic_visit(node)
 
@@ -63,12 +62,12 @@ class ModuleVisitor(NodeVisitor):
         self.generic_visit(node)
     
     def visit_IfStatement(self, node):
-        self.moduleinfotable.getCurrentAlwaysData().addControl(node.cond)
+        self.moduleinfotable.addControl(node.cond)
         if node.true_statement is not None: self.visit(node.true_statement)
         if node.false_statement is not None: self.visit(node.false_statement)
     
     def visit_CaseStatement(self, node):
-        self.moduleinfotable.getCurrentAlwaysData().addControl(node.comp)
+        self.moduleinfotable.addControl(node.comp)
         self._case(node.comp, node.caselist)
     
     def _case(self, comp, caselist):
@@ -82,12 +81,12 @@ class ModuleVisitor(NodeVisitor):
         self.visit_CaseStatement(node)
     
     def visit_BlockingSubstitution(self, node):
-        self.moduleinfotable.getCurrentAlwaysData().addData(node.right)
-        self.moduleinfotable.getCurrentAlwaysData().addState(node.left)
+        self.moduleinfotable.addData(node.right)
+        self.moduleinfotable.addState(node.left)
 
     def visit_NonblockingSubstitution(self, node):
-        self.moduleinfotable.getCurrentAlwaysData().addData(node.right)
-        self.moduleinfotable.getCurrentAlwaysData().addState(node.left)
+        self.moduleinfotable.addData(node.right)
+        self.moduleinfotable.addState(node.left)
     
     def visit_Initial(self, node):
         pass

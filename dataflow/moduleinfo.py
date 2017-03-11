@@ -13,10 +13,65 @@ from pyverilog.utils.scope import ScopeLabel, ScopeChain
 from pyverilog.vparser.ast import *
 from pyverilog.dataflow.visit import *
 
+class AlwaysData(object):
+    def __init__(self, node):
+        self.node = node
+        self.data = {}
+        self.control = {}
+        self.state = {}
+    def addData(self, name):
+        if name in self.data.keys():
+            self.data[name]+=1
+        else:
+            self.data[name]=1
+    
+    def getData(self):
+        return self.data
+    
+    def addState(self, name):
+        if name in self.state.keys():
+            self.state[name]+=1
+        else:
+            self.state[name]=1
+    
+    def getState(self):
+        return self.state
+    def addControl(self, name):
+        if name in self.control.keys():
+            self.control[name]+=1
+        else:
+            self.control[name]=1
+    
+    def getControl(self):
+        return self.control
+
+    def printInfo(self, buf=sys.stdout):
+        buf.write('AlwaysData:\n')
+        if(self.data):
+            buf.write('Data:\n')
+            string=''
+            for var in self.data.keys():
+                string+=var + '[' + str(self.data[var]) + '] '
+            buf.write(string + '\n')
+        if(self.control):
+            buf.write('Control:\n')
+            string=''
+            for var in self.control.keys():
+                string+=var + '[' + str(self.control[var]) + '] '
+            buf.write(string + '\n')
+        if(self.state):
+            buf.write('State:\n')
+            string=''
+            for var in self.state.keys():
+                string+=var + '[' + str(self.state[var]) + '] '
+            buf.write(string + '\n')
+
 class ModuleInfo(DefinitionInfo):
     def __init__(self, name, definition):
         DefinitionInfo.__init__(self, name, definition)
         self.always = {}
+        self.statelist = {}
+        self.interesting = []
         self.last = None
 
     def addAlways(self, node, alwaysdata):
@@ -31,7 +86,7 @@ class ModuleInfo(DefinitionInfo):
             raise verror.DefinitionError('Already defined Always:')
         self.last = node
         return 
-
+    
     def getAlways(self):
         return self.always
 
@@ -43,6 +98,45 @@ class ModuleInfo(DefinitionInfo):
             raise verror.DefinitionError('Already not defined')
         else:
             return self.getAlwaysData(self.last)
+    
+    def addData(self, var):
+        alwaysdata=self.getCurrentAlwaysData()
+        for name in map(str,var.getIdentifiers([])):
+            alwaysdata.addData(name)
+
+    def getData(self):
+        return self.getCurrentAlwaysData().getData()
+    
+    def addState(self, var):
+        alwaysdata=self.getCurrentAlwaysData()
+        for node in var.getIdentifiers([]):
+            self.statelist[node]=alwaysdata
+            alwaysdata.addState(str(node))
+
+    def getState(self):
+        return self.getCurrentAlwaysData().getState()
+    
+    def addControl(self, var):
+        alwaysdata=self.getCurrentAlwaysData()
+        for name in map(str,var.getIdentifiers([])):
+            alwaysdata.addControl(name)
+
+    def getControl(self):
+        return self.getCurrentAlwaysData().getControl()
+
+    def findInteresting(self):
+        for al in self.always.values():
+            self.interesting.extend(filter(lambda x: x in al.getState().keys(),al.getControl().keys()))
+        return self.interesting
+
+    def printInfo(self, buf=sys.stdout):
+        for data in self.always.values():
+            data.printInfo(buf)
+        if self.interesting:
+            buf.write('Interesting:\n')
+            for name in self.interesting:
+                buf.write(name + ' ')
+            buf.write('\n')
 
 class ModuleInfoTable(object):
     def __init__(self):
@@ -124,3 +218,44 @@ class ModuleInfoTable(object):
         else:
             return self.dict[name].getCurrentAlwaysData()
 
+    def addData(self, var, name=''):
+        if(name==''):
+            self.dict[self.current].addData(var)
+        else:
+            self.dict[name].addData(var)
+
+    def getData(self, name=''):
+        if(name==''):
+            return self.dict[self.current].getData()
+        else:
+            return self.dict[name].getData()
+    
+    def addControl(self, var, name=''):
+        if(name==''):
+            self.dict[self.current].addControl(var)
+        else:
+            self.dict[name].addControl(var)
+
+    def getControl(self, name=''):
+        if(name==''):
+            return self.dict[self.current].getControl()
+        else:
+            return self.dict[name].getControl()
+    
+    def addState(self, var, name=''):
+        if(name==''):
+            self.dict[self.current].addState(var)
+        else:
+            self.dict[name].addState(var)
+
+    def getState(self, name=''):
+        if(name==''):
+            return self.dict[self.current].getState()
+        else:
+            return self.dict[name].getState()
+
+    def getModule(self, name=''):
+        if(name==''):
+            return self.dict[self.current]
+        else:
+            return self.dict[name]

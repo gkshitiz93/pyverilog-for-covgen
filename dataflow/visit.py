@@ -86,63 +86,6 @@ class AlwaysInfo(object):
         if self.reset_name != '' and self.reset_edge == 'negedge': return True
         return False
 
-class AlwaysData(object):
-    def __init__(self, node):
-        self.node = node
-        self.data = {}
-        self.control = {}
-        self.state = {}
-    def addData(self, var):
-        for name in map(str,var.getIdentifiers([])):
-            if name in self.data.keys():
-                self.data[name]+=1
-            else:
-                self.data[name]=1
-        return
-    def getData(self):
-        return self.data
-    def addState(self, var):
-        for name in map(str,var.getIdentifiers([])):
-            if name in self.state.keys():
-                self.state[name]+=1
-            else:
-                self.state[name]=1
-        return
-    def getState(self):
-        return self.state
-    def addControl(self, var):
-        for name in map(str,var.getIdentifiers([])):
-            if name in self.control.keys():
-                self.control[name]+=1
-            else:
-                self.control[name]=1
-        return
-    def getControl(self):
-        return self.control
-
-    def printInfo(self, buf=sys.stdout):
-        buf.write('AlwaysData:\n')
-        if(self.data):
-            buf.write('Data:\n')
-            string=''
-            for var in self.data.keys():
-                string+=var + '[' + str(self.data[var]) + '] '
-            buf.write(string + '\n')
-        if(self.control):
-            buf.write('Control:\n')
-            string=''
-            for var in self.control.keys():
-                string+=var + '[' + str(self.control[var]) + '] '
-            buf.write(string + '\n')
-        if(self.state):
-            buf.write('State:\n')
-            string=''
-            for var in self.state.keys():
-                string+=var + '[' + str(self.state[var]) + '] '
-            buf.write(string + '\n')
-
-
-
 ################################################################################
 class Label(object):
     def __init__(self, name):
