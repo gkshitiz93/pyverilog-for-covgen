@@ -73,6 +73,27 @@ class ModuleInfo(DefinitionInfo):
         self.statelist = {}
         self.interesting = []
         self.last = None
+        self.instances = []
+        self.instancelists = []
+        self.arraylimiters = {}
+
+    def addlimiters(self, node, lsb, msb):
+        self.arraylimiters[node]=tuple(lsb, msb)
+    
+    def getlimiters(self, node):
+        return self.arraylimiters[node]
+
+    def addInstance(self, node):
+        self.instances.append(node)
+    
+    def addInstanceList(self, node):
+        self.instancelists.append(node)
+    
+    def getInstance(self):
+        return self.instances
+    
+    def getInstanceList(self):
+        return self.instancelists
 
     def addAlways(self, node, alwaysdata):
         self.always[node]=alwaysdata
@@ -127,16 +148,35 @@ class ModuleInfo(DefinitionInfo):
     def findInteresting(self):
         for al in self.always.values():
             self.interesting.extend(filter(lambda x: x in al.getState().keys(),al.getControl().keys()))
-        return self.interesting
 
+    def getInteresting(self):
+        return self.interesting
+    
     def printInfo(self, buf=sys.stdout):
         for data in self.always.values():
             data.printInfo(buf)
+
         if self.interesting:
-            buf.write('Interesting:\n')
+            buf.write('\nInteresting:\n')
             for name in self.interesting:
                 buf.write(name + ' ')
             buf.write('\n')
+
+        if self.instances:
+            for node in self.instances:
+                self.printInstance(node, buf)
+
+        if self.instancelists:
+            for ilist in self.instancelists:
+                for node in ilist.instances:
+                    self.printInstance(node, buf)
+
+    def printInstance(self, node, buf=sys.stdout):
+        buf.write('Instance: ' + node.module + ' - ' + node.name)
+        if node.array:
+            buf.write('[' + str(node.msb) + ':' + str(node.lsb) + ']')
+        buf.write('\n')
+
 
 class ModuleInfoTable(object):
     def __init__(self):
@@ -149,6 +189,8 @@ class ModuleInfoTable(object):
         self.current = name
     def setCurrent(self, name):
         self.current = name
+    def getCurrent(self):
+        return self.current
     def addPorts(self, ports):
         self.dict[self.current].addPorts(ports)
     def addPort(self, port):
@@ -187,6 +229,52 @@ class ModuleInfoTable(object):
         self.dict[t] = copy.deepcopy(self.dict[f])
         self.dict[t].definition.name = t
         self.dict[t].name = t
+    
+    def addlimiters(self, node, lsb, msb):
+        if(name==''):
+            self.dict[self.current].addlimiters(node, lsb, msb)
+        else:
+            self.dict[name].addlimiters(node, lsb, msb)
+
+    def addlimiters(self, node):
+        if(name==''):
+            return self.dict[self.current].getlimiters(node)
+        else:
+            return self.dict[name].getlimiters(node)
+    
+    def addInstance(self, node, name=''):
+        if(name==''):
+            self.dict[self.current].addInstance(node)
+        else:
+            self.dict[name].addInstance(node)
+    
+    def addInstanceList(self, node, name=''):
+        if(name==''):
+            self.dict[self.current].addInstanceList(node)
+        else:
+            self.dict[name].addInstanceList(node)
+    
+    def getInstance(self, name=''):
+        if(name==''):
+            return self.dict[self.current].getInstance()
+        else:
+            return self.dict[name].getInstance()
+    
+    def getInstanceList(self, name=''):
+        if(name==''):
+            return self.dict[self.current].getInstanceList()
+        else:
+            return self.dict[name].getInstanceList()
+    
+    def getInteresting(self, name=''):
+        if(name==''):
+            return self.dict[self.current].getInteresting()
+        else:
+            return self.dict[name].getInteresting()
+    
+    def findInteresting(self):
+        for name in self.dict.keys():
+            self.dict[name].findInteresting()
     
     def addAlways(self, node, alwaysdata, name=''):
         if(name==''):

@@ -92,10 +92,10 @@ class ModuleVisitor(NodeVisitor):
         pass
 
     def visit_InstanceList(self, node):
-        pass
+        self.moduleinfotable.addInstanceList(node)
 
     def visit_Instance(self, node):
-        pass
+        self.moduleinfotable.addInstance(node)
 
     def visit_Pragma(self, node):
         pass

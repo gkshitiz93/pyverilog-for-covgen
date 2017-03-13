@@ -32,6 +32,7 @@ class SignalVisitor(NodeVisitor):
 
         # set the top frame of top module
         self.stackInstanceFrame(top, top)
+        self.moduleinfotable.setCurrent(top)
 
     ################################################################################
     def getFrameTable(self):
@@ -41,6 +42,9 @@ class SignalVisitor(NodeVisitor):
     def start_visit(self):
         return self.visit(self.moduleinfotable.getDefinition(self.top))
 
+    def visit_ModuleDef(self, node):
+        self.generic_visit(node)
+    
     def visit_Input(self, node):
         self.frames.addSignal(node)
 
@@ -129,7 +133,7 @@ class SignalVisitor(NodeVisitor):
         current = self.frames.getCurrent()
         msb = self.optimize(self.getTree(node.array.msb, current)).value
         lsb = self.optimize(self.getTree(node.array.lsb, current)).value
-
+        self.moduleinfotable.addlimiters(node, lsb, msb)
         for i in range(lsb, msb+1):
             nodename = node.name + '_' + str(i)
             self._visit_Instance_body(node, nodename)
@@ -158,9 +162,11 @@ class SignalVisitor(NodeVisitor):
 
         self.setInstanceConstants()
         self.setInstanceConstantTerms()
-        #MARKself.moduleinfotable.setCurrent(node.module)
+        topmodule=self.moduleinfotable.getCurrent()
+        self.moduleinfotable.setCurrent(node.module)
         self.visit(self.moduleinfotable.getDefinition(node.module))
         self.frames.setCurrent(current)
+        self.moduleinfotable.setCurrent(topmodule)
 
     def _visit_Instance_primitive(self, node):
         pass

@@ -114,3 +114,6 @@ class ScopeChain(object):
     def __iter__(self):
         for scope in self.scopechain:
             yield scope
+
+    def pop(self):
+        del self.scopechain[-1]
