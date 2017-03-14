@@ -117,3 +117,6 @@ class ScopeChain(object):
 
     def pop(self):
         del self.scopechain[-1]
+
+    def getSignalName(self):
+        return str(self.scopechain[-1])
