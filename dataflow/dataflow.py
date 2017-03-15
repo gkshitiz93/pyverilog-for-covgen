@@ -90,6 +90,8 @@ class DFTerminal(DFNode):
         return self.name == other.name
     def __hash__(self):
         return hash(self.name)
+    def getTermName(self):
+        return str(self.name[-1])
 
 class DFConstant(DFNode):
     attr_names = ('value',)
@@ -590,7 +592,6 @@ class Bind(object):
         self.alwaysinfo = alwaysinfo
         self.parameterinfo = parameterinfo
         if dest is None: raise verror.DefinitionError('Bind dest is empty')
-        self.cond=[]
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -615,70 +616,15 @@ class Bind(object):
         ret += ')'
         return ret
 
+    def getValue(self):
+        return self.tree
+
     def tocode(self):
         if self.parameterinfo == 'parameter': return self._parameter()
         if self.parameterinfo == 'localparam': return self._localparam()
         if self.alwaysinfo is None: return self._assign()
         if self.alwaysinfo.isCombination(): return self._always_combination()
         else: return self._always_clockedge()
-
-    def getValues(self):
-        ret=[]
-        ret=self.parseTree(self.tree, ret)
-        return ret 
-
-    def parseTree(self, tree, oldlist = []):
-        ret = oldlist
-        if(isinstance(tree, DFTerminal)):
-            ret.append((str(tree.name), tree, self._getCond()))
-        if(isinstance(tree, DFIntConst)):
-            ret.append((str(tree.eval()), tree, self._getCond()))
-        if(isinstance(tree, DFFloatConst)):
-            ret.append((str(tree.eval()), tree, self._getCond()))
-        if(isinstance(tree, DFStringConst)):
-            ret.append((str(tree.eval()), tree, self._getCond()))
-        if(isinstance(tree, DFBranch)):
-            if(tree.truenode): 
-                self._addTrue(tree.condnode)
-                self.parseTree(tree.truenode, ret)
-                self._popCond()
-            if(tree.falsenode): 
-                self._addFalse(tree.condnode)
-                self.parseTree(tree.falsenode, ret)
-                self._popCond()
-        if(isinstance(tree, DFOperator)):
-            ret.append((str(tree.tostr()), tree, self._getCond()))
-        if(isinstance(tree, DFPartselect)):
-            ret.append((str(tree.tostr()), tree, self._getCond()))
-        if(isinstance(tree, DFPointer)):
-            ret.append(("What is a pointer", tree, self_getCond()))
-        if(isinstance(tree, DFConcat)):
-            ret.append((str(tree.tostr()), tree, self._getCond()))
-
-        return ret
-    
-    def _addTrue(self, condition):
-        self.cond.append(condition.tostr())
-
-    def _addFalse(self, condition):
-        self.cond.append(self._invert(condition))
-
-    def _invert(self, condition):
-        return '!' + '(' + condition.tostr() + ')'
-
-    def _popCond(self):
-        del self.cond[-1]
-
-    def _getCond(self):
-        if self.cond:
-            ret = '('
-            for cond in self.cond:
-                ret+='(' + cond + ')' + '&&'
-            ret=ret[:-2]
-            ret+=')'
-            return ret
-        else:
-            return '(1)'
 
     def getdest(self):
         dest = util.toFlatname(self.dest)

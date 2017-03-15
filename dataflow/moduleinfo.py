@@ -292,7 +292,7 @@ class ModuleInfoTable(object):
         if(name in self.dict.keys()):
             return self.dict[name].getAlways()
         else:
-            return None
+            return self.dict[self.current].getAlways()
     
     def getAlwaysData(self, node, name=''):
         if(name==''):
