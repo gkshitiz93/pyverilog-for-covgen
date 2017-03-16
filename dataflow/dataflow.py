@@ -91,7 +91,7 @@ class DFTerminal(DFNode):
     def __hash__(self):
         return hash(self.name)
     def getTermName(self):
-        return str(self.name[-1])
+        return self.name.getSignalName()
 
 class DFConstant(DFNode):
     attr_names = ('value',)
