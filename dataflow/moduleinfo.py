@@ -213,12 +213,18 @@ class ModuleInfo(DefinitionInfo):
     def addState(self, var):
         alwaysdata=self.getCurrentAlwaysData()
         for node in var.getIdentifiers([]):
-            self.statelist[node]=alwaysdata
+            self.statelist[str(node)]=alwaysdata
             alwaysdata.addState(str(node))
 
     def getState(self):
         return self.getCurrentAlwaysData().getState()
-    
+
+    def getAlwaysfromState(self, name):
+        if name in self.statelist.keys():
+            return self.statelist[name]
+        else:
+            return None
+
     def addControl(self, var):
         alwaysdata=self.getCurrentAlwaysData()
         for name in map(str,var.getIdentifiers([])):
@@ -429,6 +435,12 @@ class ModuleInfoTable(object):
             return self.dict[self.current].getControl()
         else:
             return self.dict[name].getControl()
+    
+    def getAlwaysfromState(self, varname, name=''):
+        if(name==''):
+            return self.dict[self.current].getAlwaysfromState(varname)
+        else:
+            return self.dict[name].getAlwaysfromState(varname)
     
     def addState(self, var, name=''):
         if(name==''):
