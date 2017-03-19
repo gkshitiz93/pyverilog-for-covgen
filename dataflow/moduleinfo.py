@@ -7,11 +7,22 @@ import copy
 import collections
 
 import pyverilog
+import pyverilog.utils.signaltype as signaltype
 import pyverilog.utils.util as util
 import pyverilog.utils.verror as verror
 from pyverilog.utils.scope import ScopeLabel, ScopeChain
 from pyverilog.vparser.ast import *
 from pyverilog.dataflow.visit import *
+
+
+def unique(a):
+    return list(set(a))
+
+def intersect(a, b):
+    return list(set(a) & set(b))
+
+def union(a, b):
+    return list(set(a) | set(b))
 
 class AlwaysData(object):
     def __init__(self, node):
@@ -19,6 +30,8 @@ class AlwaysData(object):
         self.data = {}
         self.control = {}
         self.state = {}
+        self.comb = None
+        self._getComb()
     def addData(self, name):
         if name in self.data.keys():
             self.data[name]+=1
@@ -33,7 +46,7 @@ class AlwaysData(object):
             self.state[name]+=1
         else:
             self.state[name]=1
-    
+
     def getState(self):
         return self.state
     def addControl(self, name):
@@ -65,6 +78,75 @@ class AlwaysData(object):
             for var in self.state.keys():
                 string+=var + '[' + str(self.state[var]) + '] '
             buf.write(string + '\n')
+    
+    def getinfo(self):
+        sens = None
+        senslist = []
+        clock_edge = None
+        clock_name = None
+        clock_bit = None
+        reset_edge = None
+        reset_name = None
+        reset_bit = None
+
+        for l in self.node.sens_list.list:
+            if l.sig is None:
+                continue
+            if isinstance(l.sig, pyverilog.vparser.ast.Pointer):
+                signame = self._get_signal_name(l.sig.var)
+                bit = int(l.sig.ptr.value)
+            else:
+                signame = self._get_signal_name(l.sig)
+                bit = 0
+            if signaltype.isClock(signame):
+                clock_name = signame
+                clock_edge = l.type
+                clock_bit = bit
+            elif signaltype.isReset(signame):
+                reset_name = signame
+                reset_edge = l.type
+                reset_bit = bit
+            else:
+                senslist.append(l)
+
+        if clock_edge is not None and len(senslist) > 0:
+            raise verror.FormatError('Illegal sensitivity list')
+        if reset_edge is not None and len(senslist) > 0:
+            raise verror.FormatError('Illegal sensitivity list')
+
+        return (clock_name, clock_edge, clock_bit, reset_name, reset_edge, reset_bit, senslist)
+    
+    def _getComb(self):
+        clock_name = None
+        for l in self.node.sens_list.list:
+            if l.sig is None:
+                continue
+            if isinstance(l.sig, pyverilog.vparser.ast.Pointer):
+                signame = self._get_signal_name(l.sig.var)
+                bit = int(l.sig.ptr.value)
+            else:
+                signame = self._get_signal_name(l.sig)
+                bit = 0
+            if signaltype.isClock(signame):
+                clock_name = signame
+                break
+
+        if clock_name is None:
+            self.comb=True
+        else:
+            self.comb=False
+    
+    def isComb(self):
+        return self.comb
+    
+    def _get_signal_name(self, n):
+        if isinstance(n, Identifier):
+            return n.name
+        if isinstance(n, Pointer):
+            return self._get_signal_name(n.var)
+        if isinstance(n, Partselect):
+            return self._get_signal_name(n.var)
+        return None
 
 class ModuleInfo(DefinitionInfo):
     def __init__(self, name, definition):
@@ -147,8 +229,27 @@ class ModuleInfo(DefinitionInfo):
 
     def findInteresting(self):
         for al in self.always.values():
-            self.interesting.extend(filter(lambda x: x in al.getState().keys(),al.getControl().keys()))
+            if al.isComb():
+                #Combinational block
+                self.interesting.extend(filter(lambda x: x in self.getstatelist(al),al.getControl().keys()))
+            else:
+                self.interesting.extend(filter(lambda x: x in al.getState().keys(),al.getControl().keys()))
+        
+        self.interesting=unique(self.interesting)
 
+    def getstatelist(self, always):
+        ret = []
+        for al in self.always.values():
+            if al.isComb():
+                common = list(filter(lambda x: x in always.getState().keys(), union(al.getControl().keys(), al.getData().keys())))
+                if common:
+                    ret.extend(self.getstatelist(al))
+            else:
+                common = list(filter(lambda x: x in always.getState().keys(), union(al.getControl().keys(), al.getData().keys())))
+                if common:
+                    ret.extend(al.getState().keys())
+        return ret
+    
     def getInteresting(self):
         return self.interesting
     
@@ -176,7 +277,6 @@ class ModuleInfo(DefinitionInfo):
         if node.array:
             buf.write('[' + str(node.msb) + ':' + str(node.lsb) + ']')
         buf.write('\n')
-
 
 class ModuleInfoTable(object):
     def __init__(self):

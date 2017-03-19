@@ -11,6 +11,10 @@ decode:
 	@clear
 	$(MAKE) -C /home/local/twin/kshitiz/coverage/bin decode
 
+simple:
+	@clear
+	$(MAKE) -C /home/local/twin/kshitiz/coverage/bin simple
+
 data:
 	$(MAKE) -C bin data
 
