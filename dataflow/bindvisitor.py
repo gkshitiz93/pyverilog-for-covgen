@@ -1426,6 +1426,7 @@ class BindVisitor(NodeVisitor):
         current_msb = None
         current_lsb = None
         current_ptr = None
+        #foundbind=None
 
         if len(current_bindlist) > 0:
             for current_bind in current_bindlist:
@@ -1436,8 +1437,12 @@ class BindVisitor(NodeVisitor):
                     current_msb = current_bind.msb
                     current_lsb = current_bind.lsb
                     current_ptr = current_bind.ptr
+                    #foundbind=current_bind
                     break
 
+        #if (str(name[-1])=="next_state"):
+        #    if foundbind:
+        #        print(foundbind.tostr())
         rest_tree = current_tree
         rest_condlist = condlist
         rest_flowlist = flowlist
@@ -1453,7 +1458,8 @@ class BindVisitor(NodeVisitor):
 
         add_tree = self.makeBranchTree(rest_condlist, rest_flowlist, raw_tree)
         if rest_flowlist and rest_tree is not None:
-            _rest_flowlist = rest_flowlist[:-1] + (not rest_flowlist[-1], )
+            #_rest_flowlist = rest_flowlist[:-1] + (not rest_flowlist[-1], )
+            _rest_flowlist = (not rest_flowlist[0],)
             add_tree = self.appendBranchTree(add_tree, _rest_flowlist, rest_tree)
 
         tree = reorder.reorder(
