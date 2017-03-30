@@ -122,6 +122,9 @@ class DFIntConst(DFConstant):
     def eval(self):
         targ = self.value.replace('_','')
         signed = False
+        match = re.search(r'[SsHhDdOoBb].*\?', targ)
+        if match is not None:
+            return targ
         match = re.search(r'[Ss](.+)', targ)
         if match is not None:
             signed = True
