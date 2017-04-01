@@ -459,3 +459,7 @@ class ModuleInfoTable(object):
             return self.dict[self.current]
         else:
             return self.dict[name]
+
+    def isModule(self, name):
+        return(name in self.dict.keys())
+            

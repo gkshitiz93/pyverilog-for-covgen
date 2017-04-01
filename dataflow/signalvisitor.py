@@ -33,17 +33,23 @@ class SignalVisitor(NodeVisitor):
         # set the top frame of top module
         self.stackInstanceFrame(top, top)
         self.moduleinfotable.setCurrent(top)
+        self.blackboxed=[]
 
     ################################################################################
     def getFrameTable(self):
         return self.frames
+
+    def getBlackboxed(self):
+        return self.blackboxed
 
     ################################################################################
     def start_visit(self):
         return self.visit(self.moduleinfotable.getDefinition(self.top))
 
     def visit_ModuleDef(self, node):
+        #print("Visiting Module : " + str(node.name))
         self.generic_visit(node)
+        #print("Exiting Module : " + str(node.name))
     
     def visit_Input(self, node):
         self.frames.addSignal(node)
@@ -144,29 +150,36 @@ class SignalVisitor(NodeVisitor):
         if nodename == '':
             raise verror.FormatError("Module %s requires an instance name" % node.module)
 
-        current = self.stackInstanceFrame(nodename, node.module)
+        if node.module in self.blackboxed:  
+            pass
+            #print("Module definition of " + node.module + " unavailable. Black boxing the module.")
+        elif not self.moduleinfotable.isModule(node.module):
+            #print("Module definition of " + node.module + " unavailable. Black boxing the module.")
+            self.blackboxed.append(node.module)
+        else:
+            current = self.stackInstanceFrame(nodename, node.module)
 
-        self.setInstanceSimpleConstantTerms()
+            self.setInstanceSimpleConstantTerms()
 
-        scope = self.frames.getCurrent()
+            scope = self.frames.getCurrent()
 
-        paramnames = self.moduleinfotable.getParamNames(node.module)
-        for paramnames_i, param in enumerate(node.parameterlist):
-            paramname = paramnames[paramnames_i] if param.paramname is None else param.paramname
-            if paramname not in paramnames:
-                raise verror.FormatError("No such parameter: %s in %s" %
-                                         (paramname, nodename))
-            value = self.optimize(self.getTree(param.argname, current))
-            name, definition = self.searchConstantDefinition(scope, paramname)
-            self.setConstant(name, value)
+            paramnames = self.moduleinfotable.getParamNames(node.module)
+            for paramnames_i, param in enumerate(node.parameterlist):
+                paramname = paramnames[paramnames_i] if param.paramname is None else param.paramname
+                if paramname not in paramnames:
+                    raise verror.FormatError("No such parameter: %s in %s" %
+                                             (paramname, nodename))
+                value = self.optimize(self.getTree(param.argname, current))
+                name, definition = self.searchConstantDefinition(scope, paramname)
+                self.setConstant(name, value)
 
-        self.setInstanceConstants()
-        self.setInstanceConstantTerms()
-        topmodule=self.moduleinfotable.getCurrent()
-        self.moduleinfotable.setCurrent(node.module)
-        self.visit(self.moduleinfotable.getDefinition(node.module))
-        self.frames.setCurrent(current)
-        self.moduleinfotable.setCurrent(topmodule)
+            self.setInstanceConstants()
+            self.setInstanceConstantTerms()
+            topmodule=self.moduleinfotable.getCurrent()
+            self.moduleinfotable.setCurrent(node.module)
+            self.visit(self.moduleinfotable.getDefinition(node.module))
+            self.frames.setCurrent(current)
+            self.moduleinfotable.setCurrent(topmodule)
 
     def _visit_Instance_primitive(self, node):
         pass

@@ -27,7 +27,7 @@ from pyverilog.dataflow.moduleinfo import *
 from pyverilog.dataflow.frames import *
 
 class BindVisitor(NodeVisitor):
-    def __init__(self, moduleinfotable, top, frames, noreorder=False):
+    def __init__(self, moduleinfotable, top, frames, blackboxed=[], noreorder=False):
         self.moduleinfotable = moduleinfotable
         self.top = top
         self.frames = frames
@@ -48,6 +48,7 @@ class BindVisitor(NodeVisitor):
 
         self.renamecnt = 0
         self.default_nettype = 'wire'
+        self.blackboxed = blackboxed
 
     ############################################################################
     def getDataflows(self):
@@ -62,7 +63,10 @@ class BindVisitor(NodeVisitor):
 
     def visit_ModuleDef(self, node):
         self.default_nettype = node.default_nettype
+        
+        print("Visiting Module : " + str(node.name))
         self.generic_visit(node)
+        print("Exiting Module : " + str(node.name))
 
     def visit_Input(self, node):
         self.addTerm(node)
@@ -159,6 +163,10 @@ class BindVisitor(NodeVisitor):
 
     def _visit_Instance_body(self, node, nodename, arrayindex=None):
         if node.module in primitives: return self._visit_Instance_primitive(node, arrayindex)
+        
+        if node.module in self.blackboxed: return
+
+        print("Analyzing instance " + nodename + " of type " + node.module)
 
         if nodename == '':
             raise verror.FormatError("Module %s requires an instance name" % node.module)
@@ -1276,7 +1284,7 @@ class BindVisitor(NodeVisitor):
     def getDsts(self, left, scope):
         if isinstance(left, Lvalue):
             return self.getDsts(left.var, scope)
-        if isinstance(left, LConcat):
+        if isinstance(left, LConcat) or isinstance(left, Concat):
             dst = []
             for n in left.list:
                 dst.extend(list(self.getDsts(n, scope)))
