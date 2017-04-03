@@ -27,7 +27,7 @@ from pyverilog.dataflow.moduleinfo import *
 from pyverilog.dataflow.frames import *
 
 class BindVisitor(NodeVisitor):
-    def __init__(self, moduleinfotable, top, frames, blackboxed=[], noreorder=False):
+    def __init__(self, moduleinfotable, top, frames, blackboxed=[], noreorder=False, debug=False):
         self.moduleinfotable = moduleinfotable
         self.top = top
         self.frames = frames
@@ -49,6 +49,7 @@ class BindVisitor(NodeVisitor):
         self.renamecnt = 0
         self.default_nettype = 'wire'
         self.blackboxed = blackboxed
+        self.debug=debug
 
     ############################################################################
     def getDataflows(self):
@@ -64,9 +65,11 @@ class BindVisitor(NodeVisitor):
     def visit_ModuleDef(self, node):
         self.default_nettype = node.default_nettype
         
-        print("Visiting Module : " + str(node.name))
+        if self.debug:
+            print("Visiting Module : " + str(node.name))
         self.generic_visit(node)
-        print("Exiting Module : " + str(node.name))
+        if self.debug:
+            print("Exiting Module : " + str(node.name))
 
     def visit_Input(self, node):
         self.addTerm(node)
@@ -166,7 +169,8 @@ class BindVisitor(NodeVisitor):
         
         if node.module in self.blackboxed: return
 
-        print("Analyzing instance " + nodename + " of type " + node.module)
+        if self.debug:
+            print("Analyzing instance " + nodename + " of type " + node.module)
 
         if nodename == '':
             raise verror.FormatError("Module %s requires an instance name" % node.module)

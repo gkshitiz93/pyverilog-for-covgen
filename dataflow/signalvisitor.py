@@ -23,7 +23,7 @@ from pyverilog.dataflow.moduleinfo import *
 from pyverilog.dataflow.frames import *
 
 class SignalVisitor(NodeVisitor):
-    def __init__(self, moduleinfotable, top):
+    def __init__(self, moduleinfotable, top, debug=False):
         self.moduleinfotable = moduleinfotable
         self.top = top
         self.frames = FrameTable(moduleinfotable)
@@ -34,6 +34,7 @@ class SignalVisitor(NodeVisitor):
         self.stackInstanceFrame(top, top)
         self.moduleinfotable.setCurrent(top)
         self.blackboxed=[]
+        self.debug=debug
 
     ################################################################################
     def getFrameTable(self):
@@ -154,7 +155,8 @@ class SignalVisitor(NodeVisitor):
             pass
             #print("Module definition of " + node.module + " unavailable. Black boxing the module.")
         elif not self.moduleinfotable.isModule(node.module):
-            #print("Module definition of " + node.module + " unavailable. Black boxing the module.")
+            if self.debug:
+                print("Module definition of " + node.module + " unavailable. Black boxing the module.")
             self.blackboxed.append(node.module)
         else:
             current = self.stackInstanceFrame(nodename, node.module)
