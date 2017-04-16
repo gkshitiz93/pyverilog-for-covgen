@@ -50,6 +50,7 @@ class BindVisitor(NodeVisitor):
         self.default_nettype = 'wire'
         self.blackboxed = blackboxed
         self.debug=debug
+        self.counter=0
 
     ############################################################################
     def getDataflows(self):
@@ -66,9 +67,11 @@ class BindVisitor(NodeVisitor):
         self.default_nettype = node.default_nettype
         
         if self.debug:
-            print("Visiting Module : " + str(node.name))
+            print("Visiting Module : " + str(node.name) + " Position: " + str(self.counter))
+            self.counter+=1
         self.generic_visit(node)
         if self.debug:
+            self.counter-=1
             print("Exiting Module : " + str(node.name))
 
     def visit_Input(self, node):
@@ -288,10 +291,10 @@ class BindVisitor(NodeVisitor):
             else:
                 senslist.append(l)
 
-        if clock_edge is not None and len(senslist) > 0:
-            raise verror.FormatError('Illegal sensitivity list')
-        if reset_edge is not None and len(senslist) > 0:
-            raise verror.FormatError('Illegal sensitivity list')
+        #if clock_edge is not None and len(senslist) > 0:
+        #    raise verror.FormatError('Illegal sensitivity list')
+        #if reset_edge is not None and len(senslist) > 0:
+        #    raise verror.FormatError('Illegal sensitivity list')
 
         return (clock_name, clock_edge, clock_bit, reset_name, reset_edge, reset_bit, senslist)
 
@@ -379,6 +382,8 @@ class BindVisitor(NodeVisitor):
             self.copyBlockingAssigns(f, start_frame)
 
     def visit_CasexStatement(self, node):
+        return self.visit_CaseStatement(node)
+    def visit_CasezStatement(self, node):
         return self.visit_CaseStatement(node)
 
     def _case(self, comp, caselist, myframes):

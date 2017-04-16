@@ -565,6 +565,7 @@ class CaseStatement(Node):
         return tuple(nodelist)
 
 class CasexStatement(CaseStatement): pass
+class CasezStatement(CaseStatement): pass
 
 class Case(Node):
     attr_names = ()

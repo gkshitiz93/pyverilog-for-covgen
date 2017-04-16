@@ -246,7 +246,7 @@ class ModuleInfo(DefinitionInfo):
     def getstatelist(self, always):
         ret = []
         for al in self.always.values():
-            if al.isComb():
+            if al.isComb() and al is not always:
                 common = list(filter(lambda x: x in always.getState().keys(), union(al.getControl().keys(), al.getData().keys())))
                 if common:
                     ret.extend(self.getstatelist(al))

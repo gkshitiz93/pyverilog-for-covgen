@@ -260,6 +260,8 @@ class SignalVisitor(NodeVisitor):
 
     def visit_CasexStatement(self, node):
         return self.visit_CaseStatement(node)
+    def visit_CasezStatement(self, node):
+        return self.visit_CaseStatement(node)
         
     def _case(self, comp, caselist):
         if len(caselist) == 0: return

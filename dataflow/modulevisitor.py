@@ -79,6 +79,8 @@ class ModuleVisitor(NodeVisitor):
     
     def visit_CasexStatement(self, node):
         self.visit_CaseStatement(node)
+    def visit_CasezStatement(self, node):
+        self.visit_CaseStatement(node)
     
     def visit_BlockingSubstitution(self, node):
         self.moduleinfotable.addData(node.right)
