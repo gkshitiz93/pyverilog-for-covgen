@@ -862,6 +862,7 @@ class BindVisitor(NodeVisitor):
         rscope = lscope
         dst = self.getDestinations(left, lscope)
 
+        #print("Adding bind for : " + str(dst))
         if bindtype == 'blocking':
             self.addDataflow_blocking(dst, right, lscope, rscope, alwaysinfo)
         else:
