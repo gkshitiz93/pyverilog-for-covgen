@@ -23,7 +23,7 @@ from pyverilog.dataflow.moduleinfo import *
 from pyverilog.dataflow.frames import *
 
 class SignalVisitor(NodeVisitor):
-    def __init__(self, moduleinfotable, top, debug=False):
+    def __init__(self, moduleinfotable, top, debug=False, ignore=[]):
         self.moduleinfotable = moduleinfotable
         self.top = top
         self.frames = FrameTable(moduleinfotable)
@@ -33,7 +33,9 @@ class SignalVisitor(NodeVisitor):
         # set the top frame of top module
         self.stackInstanceFrame(top, top)
         self.moduleinfotable.setCurrent(top)
-        self.blackboxed=[]
+        self.blackboxed=ignore
+        for name in self.blackboxed:
+                print("Module definition of " + name + " ignored/black boxed")
         self.debug=debug
 
     ################################################################################
@@ -48,9 +50,11 @@ class SignalVisitor(NodeVisitor):
         return self.visit(self.moduleinfotable.getDefinition(self.top))
 
     def visit_ModuleDef(self, node):
-        #print("Visiting Module : " + str(node.name))
+        if self.debug:
+            print("Visiting Module : " + str(node.name))
         self.generic_visit(node)
-        #print("Exiting Module : " + str(node.name))
+        if self.debug:
+            print("Exiting Module : " + str(node.name))
     
     def visit_Input(self, node):
         self.frames.addSignal(node)
@@ -155,8 +159,8 @@ class SignalVisitor(NodeVisitor):
             pass
             #print("Module definition of " + node.module + " unavailable. Black boxing the module.")
         elif not self.moduleinfotable.isModule(node.module):
-            if self.debug:
-                print("Module definition of " + node.module + " unavailable. Black boxing the module.")
+            #if self.debug:
+            print("Module definition of " + node.module + " unavailable. Black boxing the module.")
             self.blackboxed.append(node.module)
         else:
             current = self.stackInstanceFrame(nodename, node.module)

@@ -109,7 +109,11 @@ class VerilogOptimizer(object):
             return DFOperator(tuple(nextnodes_rslts), tree.operator)
 
         if isinstance(tree, DFTerminal):
-            if not self.hasConstant(tree.name): return tree
+            #print("From constant solver - " + str(tree.name))
+            if not self.hasConstant(tree.name): 
+                #print(str(tree.name) + " has no constant term.")
+                #print(self.constlist)
+                return tree
             msb = self.getTerm(tree.name).msb
             lsb = self.getTerm(tree.name).lsb
             const = self.getConstant(tree.name)
@@ -290,7 +294,10 @@ class VerilogOptimizer(object):
             return self.default_width
         if isinstance(node, DFTerminal):
             term = self.getTerm(node.name)
-            msb = self.optimizeConstant(term.msb).value
+            #print("From getwidth before optimization : " + term.msb.tostr())
+            msb = self.optimizeConstant(term.msb)
+            #print("From getwidth after optimization: " + msb.tostr())
+            msb=msb.value
             lsb = self.optimizeConstant(term.lsb).value
             width = abs(msb - lsb) + 1
             return width

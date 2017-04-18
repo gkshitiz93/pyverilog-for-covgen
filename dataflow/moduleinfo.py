@@ -160,7 +160,7 @@ class ModuleInfo(DefinitionInfo):
         self.arraylimiters = {}
 
     def addlimiters(self, node, lsb, msb):
-        self.arraylimiters[node]=tuple(lsb, msb)
+        self.arraylimiters[node]=(lsb, msb)
     
     def getlimiters(self, node):
         return self.arraylimiters[node]
@@ -281,7 +281,8 @@ class ModuleInfo(DefinitionInfo):
     def printInstance(self, node, buf=sys.stdout):
         buf.write('Instance: ' + node.module + ' - ' + node.name)
         if node.array:
-            buf.write('[' + str(node.msb) + ':' + str(node.lsb) + ']')
+            msb, lsb = self.getlimiters(node)
+            buf.write('[' + str(msb) + ':' + str(lsb) + ']')
         buf.write('\n')
 
 class ModuleInfoTable(object):
@@ -336,13 +337,13 @@ class ModuleInfoTable(object):
         self.dict[t].definition.name = t
         self.dict[t].name = t
     
-    def addlimiters(self, node, lsb, msb):
+    def addlimiters(self, node, lsb, msb, name=''):
         if(name==''):
             self.dict[self.current].addlimiters(node, lsb, msb)
         else:
             self.dict[name].addlimiters(node, lsb, msb)
 
-    def addlimiters(self, node):
+    def getlimiters(self, node, name=''):
         if(name==''):
             return self.dict[self.current].getlimiters(node)
         else:

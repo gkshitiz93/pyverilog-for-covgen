@@ -22,6 +22,7 @@ class ModuleVisitor(NodeVisitor):
         self.moduleinfotable = ModuleInfoTable()
 
     def visit_ModuleDef(self, node):
+        #print("Visiting module " + str(node.name))
         self.moduleinfotable.addDefinition(node.name, node)
         self.generic_visit(node)
 
@@ -45,6 +46,12 @@ class ModuleVisitor(NodeVisitor):
         self.moduleinfotable.addConst(node.name, node)
 
     def visit_Function(self, node):
+        pass
+
+    def visit_GenerateStatement(self, node):
+        pass
+    
+    def visit_ForStatement(self, node):
         pass
 
     def visit_Task(self, node):
@@ -83,6 +90,7 @@ class ModuleVisitor(NodeVisitor):
         self.visit_CaseStatement(node)
     
     def visit_BlockingSubstitution(self, node):
+        #print(node.lineno)
         self.moduleinfotable.addData(node.right)
         self.moduleinfotable.addState(node.left)
 
